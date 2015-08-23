@@ -34,6 +34,10 @@ var Theca = new mongoose.Schema({
     note: String,
     text: String,
     prog: String
-});
+    
+    },
+    
+    {collection: 'recs'} // specify collection
+);
 
 mongoose.model('Theca', Theca);

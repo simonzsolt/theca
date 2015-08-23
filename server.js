@@ -8,13 +8,14 @@ var express = require('express'); // server dep
     favicon = require('serve-favicon'),
     logger = require('morgan'),
     
-    bodyParser = require('body-parser')
+    bodyParser = require('body-parser'),
+    cookieParser = require('cookie-parser');
 
 // ====================LOADING CONFIG VARS====================
 
 //  mongoose
 var mongoose = require('mongoose');
-var models = require('./public/models/thecaModels'); 
+var models = require('./public/models/thecaModel'); 
 
 // ====================SERVER INIT====================
 
