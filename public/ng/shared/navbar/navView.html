@@ -1,0 +1,99 @@
+<nav ng-controller="navCtrl" 
+    class="navbar navbar-default navbar-fixed-top navbar-inverse">
+
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <b class="navbar-brand">THECA</b>
+        </div>
+
+        <div>
+            <ul class="nav navbar-nav">
+
+                <li ng-hide="path === '/list' || !loggedInUser.username">
+                    <a class=""  href="#list">
+                        <span class="glyphicon glyphicon-th-list"></span>        
+                            Lista
+                    </a>
+                </li>
+
+                <li ng-show="path === viewPathId && loggedInUser.role !== 'user'" >
+                    <a class=""  href="#edit/id/{{rec._id}}">
+                        <span class="glyphicon glyphicon-edit"></span>
+                        Szerkesztő
+                    </a>
+                </li>
+
+                <li ng-show="path === editPathId ">
+                    <a class=""  href="#view/id/{{rec._id}}">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                        Részletek
+                    </a>
+                </li>
+
+
+                <li ng-hide="loggedInUser.role=='user' || path === '/upload' ">
+                    <a class="" href="#upload">
+                        <span class="glyphicon glyphicon-upload"></span>
+                        Feltöltés
+                    </a> 
+                </li>
+
+                <!-- <li class="btn btn-default"> {{ path }} || {{ pathId }} </li> -->
+            </ul>
+
+
+                <div id="userNav">
+
+                    <ul class="nav navbar-nav">
+
+
+                        <li ng-hide="path === '/signup' || loggedInUser.username">
+                            <a class=""  href="#signup">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                                Regisztráció
+                            </a>
+                        </li>
+
+                        <li>
+                            <a ng-hide="path === '/login' || loggedInUser.username" 
+                                class=""  
+                                href="#login">
+                                <span class="glyphicon glyphicon-log-in" ></span>
+                                Bejelentkezés
+                            </a>
+                        </li>
+
+                        <li>
+                           <a ng-show="loggedInUser.username" class="" 
+                                href="#profile/id/{{loggedInUser._id}}">
+                                <span class="glyphicon glyphicon-user"></span>
+                                <b>
+                                    {{ loggedInUser.nickname }} || 
+                                    {{ loggedInUser.role }} 
+                                </b>
+                            </a>
+                           <!-- <h4>isLoggedIn : {{ isLoggedIn }}</h4> -->
+                        </li>
+
+                        <li>
+                            <a ng-show="loggedInUser.username" class="" 
+                                href="/logout">
+                                <span class="glyphicon glyphicon-log-out" ></span>
+                                Kijelentkezés
+                            </a>
+                        </li>
+
+                        <!--   
+                            <li>
+                                <a ng-show="loggedInUser.username" 
+                                    class="btn btn-default" href="#users">
+                                    Felhasználók
+                                </a>
+                            </li>
+                        -->
+                </div>
+                
+            </ul>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,60 @@
+
+	<div class="form-group">
+		<label class="control-label col-md-4" for="error"></label>
+		<div ng-cloak ng-show="message" class="alert alert-danger col-md-4" role="alert"> 
+			{{ message }}
+		</div>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label col-md-4" for="username">E-mail:</label>
+	    <div class="col-md-4">
+	        <input name="username" class="form-control" id="username" type="email" 
+	        	placeholder="E-mail" ng-model="user.username" required> 
+			</input>
+	    </div>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label col-md-4" for="last_name">Vezetéknév:</label>
+	    <div class="col-md-4">
+	        <input name="last_name" class="form-control" id="last_name" type="text" 
+	        	placeholder="Vezetéknév" ng-model="user.last_name" required> 
+			</input>
+	    </div>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label col-md-4" for="first_name">Keresztnév:</label>
+	    <div class="col-md-4">
+	        <input name="first_name" class="form-control" id="first_name" type="text" 
+	        	placeholder="Keresztnév" ng-model="user.first_name" required> 
+			</input>
+	    </div>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label col-md-4" for="nickname">Felhasználónév:</label>
+	    <div class="col-md-4">
+	        <input name="nickname" class="form-control" id="nickname" type="text" 
+	        	placeholder="Felhasználónév" ng-model="user.nickname" required> 
+			</input>
+	    </div>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label col-md-4" for="password">Jelszó:</label>
+	    <div class="col-md-4">
+	        <input 
+	        	class="form-control"
+	        	name="password" 
+	        	id="password" 
+	        	type="password" 
+	        	placeholder="Jelszó: (Min 6, max 32 karakter)" 
+	        	ng-model="user.password"
+	        	pattern=".{6,32}"
+	        	required> 
+			</input>
+	    </div>
+	    <label class="control-label col-md-0" for="password">(Min 6, max 32 karakter)</label>
+	</div>

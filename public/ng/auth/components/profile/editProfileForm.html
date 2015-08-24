@@ -1,0 +1,65 @@
+   
+    	
+	<div class="form-group">
+	    <label class="control-label col-md-4" for="username">E-mail:</label>
+	    <div class="col-md-4">
+	        <input name="username" class="form-control" id="username" type="text" 
+	        	placeholder="E-mail"  ng-model="user.username" required readonly> 
+			</input>
+	    </div>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label col-md-4" for="last_name">Vezetéknév:</label>
+	    <div class="col-md-4">
+	        <input name="last_name" class="form-control" id="last_name" type="text" 
+	        	placeholder="Vezetéknév"  ng-model="user.last_name" required> 
+			</input>
+	    </div>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label col-md-4" for="first_name">Keresztnév:</label>
+	    <div class="col-md-4">
+	        <input name="first_name" class="form-control" id="first_name" type="text" 
+	        	placeholder="Keresztnév"  ng-model="user.first_name" required> 
+			</input>
+	    </div>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label col-md-4" for="nickname">Felhasználónév:</label>
+	    <div class="col-md-4">
+	        <input name="nickname" class="form-control" id="nickname" type="text" 
+	        	placeholder="Felhasználónév"  ng-model="user.nickname" required> 
+			</input>
+	    </div>
+	</div>
+	
+		 
+	<div ng-show="loggedInUser.role=='admin'" class="form-group">
+	    <label class="control-label col-md-4" for="role">Jogosultság:</label>
+	    <div class="col-md-4">
+        	<select name="role" class="form-control" id="role"  
+        		placeholder="Jogosultság" ng-model="user.role" 
+        		required>
+
+
+        		<option>admin</option>
+        		<option>editor</option>
+        		<option>user</option>
+
+
+			</select>
+    	</div>
+	</div>
+ 	
+
+	<div class="">
+	    <div class="text-center">
+	        <button class="btn btn-success formBtn" type="submit"> 
+	            <span class="glyphicon glyphicon-save" ></span>
+	            Mentés
+	        </button> 
+	    </div>
+	</div>

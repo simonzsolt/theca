@@ -1,0 +1,22 @@
+<div ng-include="'ng/shared/navbar/navView.html'"></div> 
+
+<div>
+    <div class="jumbotron">
+        <h2>
+        	{{user.nickname}}
+        	<small> 
+ 
+        		/ 	{{ user.last_name }} 
+        			{{ user.first_name }} 
+
+        	</small> 
+        </h2>
+    </div>
+
+
+    <form class="form-horizontal" role="form" ng-submit="editUser()">
+    
+    	<div ng-cloack ng-include="'ng/auth/components/users/editUserForm.html'"></div>
+
+    </form>
+</div>
