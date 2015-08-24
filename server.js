@@ -29,7 +29,7 @@ var models = require('./public/models/thecaModel');
 // -------------------PORT AND IP-------------------
 
 // for local
-var port = (process.env.OPENSHIFT_NODEJS_PORT   || 3000);
+var port = (process.env.OPENSHIFT_NODEJS_PORT   || 3333);
 var ip   = (process.env.OPENSHIFT_NODEJS_IP     || '127.0.0.1');
 
 // -------------------DB CONNECTION-------------------

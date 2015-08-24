@@ -220,9 +220,10 @@ router.post('/login', passport.authenticate('local'), function(req, res) {
   console.log('/login post sent user: ' + req.user.username);
 });
 
-router.get('/login', passport.authenticate('local', {failureFlash: true }), function(req, res){
-    console.log('/login get authenticating user');
-    res.send(req.user);
+router.get('/login', passport.authenticate('local', 
+    {failureFlash: true }), function(req, res){
+        console.log('/login get authenticating user');
+        res.send(req.user);
 });
 
 // -----------------------------CHECK IF LOGGEDIN-----------------------------
@@ -236,12 +237,13 @@ router.get('/login', passport.authenticate('local', {failureFlash: true }), func
 
 // -----------------------------LOGOUT-----------------------------
 
+
 // req.logout function to terminate session
 router.get('/logout', function(req, res) {
     console.log('/logout get authenticating user');
     req.logout();
     // res.sendStatus(200);
-    res.redirect('/login');
+   res.redirect('/#login');
 });
 
 module.exports = router;

@@ -11,6 +11,7 @@
     <!-- endbower -->
   
 </head>
+
 <body class="container-fluid" ng-app="thecaApp">
 
     <ng-view class="container-fluid"></ng-view>
@@ -24,13 +25,37 @@
     <!-- endbower -->
 
     <script src="/ng/main.js"></script>
-    <script src="/ng/config.js"></script>
 
+    <script src="/ng/config.js"></script>
     <script src="/ng/theca/thecaConfig.js"></script>
+  
+
     
     <script src="/ng/theca/list/listCtrl.js"></script>
 
+
+    <script src="/ng/shared/navbar/navCtrl.js"></script>
+
+    <script src="/ng/auth/config/authConfig.js"></script>
+
+
+
     <script src="/ng/theca/services/thecaFactory.js"></script>
+    <script src="/ng/auth/services/userLoggedInFactory.js"></script> 
+    <script src="/ng/auth/services/signupFactory.js"></script> 
+    <script src="/ng/auth/services/profileFactory.js"></script> 
+    <script src="/ng/auth/services/userFactory.js"></script> 
+
+     
+    <script src="/ng/auth/components/signup/signupCtrl.js"></script>
+
+    <script src="ng/auth/components/login/loginCtrl.js"></script>
+    <script src="ng/auth/components/profile/profileCtrl.js"></script>
+    <script src="ng/auth/components/unauth/unauthCtrl.js"></script>
+    <script src="ng/auth/components/users/editUsersCtrl.js"></script>
+    <script src="ng/auth/components/users/usersCtrl.js"></script>
+
+
     <!-- 
     <script src=""></script>
     <script src=""></script>
