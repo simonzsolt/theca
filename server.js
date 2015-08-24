@@ -10,8 +10,6 @@ var express = require('express'); // server dep
     passportLocalMongoose = require('passport-local-mongoose'),
     favicon = require('serve-favicon'),
     logger = require('morgan'),
-
-    config = require('config'),
     
     bodyParser = require('body-parser'),
     session = require('express-session'),

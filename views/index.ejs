@@ -2,8 +2,38 @@
 <html>
 <head>
 	<title><%= title %></title>
+    <link rel="stylesheet" type="text/css" 
+        href="/assets/lib/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" 
+        href="/assets/lib/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
+    <!-- bower:css -->
+    <!-- endbower -->
+  
 </head>
-<body>
+<body class="container-fluid" ng-app="thecaApp">
 
+    <ng-view class="container-fluid"></ng-view>
+
+    <!-- bower:js -->
+    <script src="/assets/lib/jquery/dist/jquery.js"></script>
+    <script src="/assets/lib/angular/angular.js"></script>
+    <script src="/assets/lib/angular-route/angular-route.js"></script>
+    <script src="/assets/lib/angular-resource/angular-resource.js"></script>
+    <script src="/assets/lib/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+
+    <script src="/ng/main.js"></script>
+    <script src="/ng/config.js"></script>
+
+    <script src="/ng/theca/thecaConfig.js"></script>
+    
+    <script src="/ng/theca/list/listCtrl.js"></script>
+
+    <script src="/ng/theca/services/thecaFactory.js"></script>
+    <!-- 
+    <script src=""></script>
+    <script src=""></script>
+ -->
 </body>
 </html>
