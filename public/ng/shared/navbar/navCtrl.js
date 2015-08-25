@@ -5,7 +5,7 @@ angular
 
             $scope, 
             userLoggedInFactory,
-            tehcaFactory, 
+            thecaFactory, 
             $routeParams, 
             $location, 
             $rootScope, 

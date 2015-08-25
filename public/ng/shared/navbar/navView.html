@@ -11,29 +11,29 @@
 
                 <li ng-hide="path === '/list' || !loggedInUser.username">
                     <a class=""  href="#list">
-                        <span class="glyphicon glyphicon-th-list"></span>        
+                        <i class="fa fa-list"></i>        
                             Lista
                     </a>
                 </li>
 
                 <li ng-show="path === viewPathId && loggedInUser.role !== 'user'" >
                     <a class=""  href="#edit/id/{{rec._id}}">
-                        <span class="glyphicon glyphicon-edit"></span>
+                        <i class="fa fa-pencil-square-o"></i>
                         Szerkesztő
                     </a>
                 </li>
 
                 <li ng-show="path === editPathId ">
                     <a class=""  href="#view/id/{{rec._id}}">
-                        <span class="glyphicon glyphicon-eye-open"></span>
+                        <i class="fa fa-eye"></i>
                         Részletek
                     </a>
                 </li>
 
 
-                <li ng-hide="loggedInUser.role=='user' || path === '/upload' ">
+                <li ng-hide="!loggedInUser.username || path === '/upload' ">
                     <a class="" href="#upload">
-                        <span class="glyphicon glyphicon-upload"></span>
+                        <i class="fa fa-upload"></i>
                         Feltöltés
                     </a> 
                 </li>
@@ -49,7 +49,7 @@
 
                         <li ng-hide="path === '/signup' || loggedInUser.username">
                             <a class=""  href="#signup">
-                            <span class="glyphicon glyphicon-pencil"></span>
+                            <i class="fa fa-key"></i>
                                 Regisztráció
                             </a>
                         </li>
@@ -58,7 +58,7 @@
                             <a ng-hide="path === '/login' || loggedInUser.username" 
                                 class=""  
                                 href="#login">
-                                <span class="glyphicon glyphicon-log-in" ></span>
+                                <i class="fa fa-sign-in"></i>
                                 Bejelentkezés
                             </a>
                         </li>
@@ -66,7 +66,7 @@
                         <li>
                            <a ng-show="loggedInUser.username" class="" 
                                 href="#profile/id/{{loggedInUser._id}}">
-                                <span class="glyphicon glyphicon-user"></span>
+                                <i class="fa fa-user"></i>
                                 <b>
                                     {{ loggedInUser.nickname }} || 
                                     {{ loggedInUser.role }} 
@@ -78,7 +78,7 @@
                         <li>
                             <a ng-show="loggedInUser.username" class="" 
                                 href="/logout">
-                                <span class="glyphicon glyphicon-log-out" ></span>
+                                <i class="fa fa-sign-out"></i>
                                 Kijelentkezés
                             </a>
                         </li>

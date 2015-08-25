@@ -7,7 +7,7 @@ angular
 
         // service for listing, uploading and editing
 
-        .factory('tehcaFactory', function($resource){
+        .factory('thecaFactory', function($resource){
 
             // var instead of return
 
@@ -15,4 +15,4 @@ angular
                 'update' : {method: 'PUT'}
 
             }) //return $resource
-        }); // tehcaFactory
+        }); // thecaFactory

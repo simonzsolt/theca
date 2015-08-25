@@ -4,3 +4,8 @@ body{ padding-top: 70px }
     table-layout: fixed;
     /*word-wrap: break-word;*/
 }
+
+.formBtn{ 
+    margin-top: 50px;
+    margin-bottom: 50px;
+}

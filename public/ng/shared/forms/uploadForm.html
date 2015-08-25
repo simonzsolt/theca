@@ -1,0 +1,553 @@
+<div ng-controller="uploadFormCtrl">
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="bh_name">
+            Elnevezés a BH alapján:
+        </label> 
+
+        <div class="col-md-6" id="bh_name" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Elnevezés a BH alapján" 
+                ng-model="rec.bh_name" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="origin">
+            Származási hely:
+        </label> 
+
+        <div class="col-md-6" id="origin" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Származási hely" 
+                ng-model="rec.origin" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="doc_date_from">
+            A dokumentum dátuma (-tól):
+        </label> 
+
+        <div class="col-md-6" id="doc_date_from" >
+            <input class="form-control"
+                ui-date="dateOptions"
+                placeholder="A dokumentum dátuma (-tól)" 
+                ng-model="rec.doc_date_from" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="doc_date_to">
+            A dokumentum dátuma (-ig):
+        </label> 
+
+        <div class="col-md-6" id="doc_date_to" >
+            <input class="form-control"
+                ui-date="dateOptions"
+                placeholder="A dokumentum dátuma (-ig)" 
+                ng-model="rec.doc_date_to" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="source_type">
+            Forrástípus:
+        </label> 
+
+        <div class="col-md-6" id="source_type" >
+            <angucomplete 
+            id="source" 
+            placeholder="Forrástípus" 
+            selectedobject="selected" 
+            localdata="selectSourceType" 
+            searchfields="source" 
+            titlefield="source" 
+            minlength="1" 
+            inputclass="form-control" 
+            matchclass="highlight"/>
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="ownership">
+            Intézményi/magán:
+        </label> 
+
+        <div class="col-md-6" id="ownership" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Intézményi/magán" 
+                ng-model="rec.ownership" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="poss_name">
+            Tulajdonos neve:
+        </label> 
+
+        <div class="col-md-6" id="poss_name" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Tulajdonos neve" 
+                ng-model="rec.poss_name" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="poss_name_var">
+            Tulajdonos névváltozatai:
+        </label> 
+
+        <div class="col-md-6" id="poss_name_var" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Tulajdonos névváltozatai" 
+                ng-model="rec.poss_name_var" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="poss_origin">
+            Tulajdonos származása:
+        </label> 
+
+        <div class="col-md-6" id="poss_origin" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Tulajdonos származása" 
+                ng-model="rec.poss_origin" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="poss_date">
+            Tulajdonoshoz köthető dátum:
+        </label> 
+
+        <div class="col-md-6" id="poss_date" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Tulajdonoshoz köthető dátum" 
+                ng-model="rec.poss_date" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="poss_place">
+            Tulajdonoshoz köthető hely:
+        </label> 
+
+        <div class="col-md-6" id="poss_place" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Tulajdonoshoz köthető hely" 
+                ng-model="rec.poss_place" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="poss_occ">
+            Tulajdonos foglalkozása:
+        </label> 
+
+        <div class="col-md-6" id="poss_occ" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Tulajdonos foglalkozása" 
+                ng-model="rec.poss_occ" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="poss_nat">
+            Tulajdonos nemzetisége:
+        </label> 
+
+        <div class="col-md-6" id="poss_nat" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Tulajdonos nemzetisége" 
+                ng-model="rec.poss_nat" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="rec_name">
+            Jegyzék leírója:
+        </label> 
+
+        <div class="col-md-6" id="rec_name" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Jegyzék leírója" 
+                ng-model="rec.rec_name" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="rec_prev_place">
+            Jegyzék egykori lelőhelye(i):
+        </label> 
+
+        <div class="col-md-6" id="rec_prev_place" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Jegyzék egykori lelőhelye(i)" 
+                ng-model="rec.rec_prev_place" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="rec_curr_place">
+            Jegyzék mai lelőhelye, jelzete:
+        </label> 
+
+        <div class="col-md-6" id="rec_curr_place" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Jegyzék mai lelőhelye, jelzete" 
+                ng-model="rec.rec_curr_place" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="rec_prev_score">
+            Jegyzék régebbi jelzete:
+        </label> 
+
+        <div class="col-md-6" id="rec_prev_score" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Jegyzék régebbi jelzete" 
+                ng-model="rec.rec_prev_score" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="rec_pub">
+            Jegyzék kiadása(i) (részleges/teljes):
+        </label> 
+
+        <div class="col-md-6" id="rec_pub" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Jegyzék kiadása(i) (részleges/teljes)" 
+                ng-model="rec.rec_pub" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="book_num_from">
+            A könyvek száma (-tól):
+        </label> 
+
+        <div class="col-md-6" id="book_num_from" >
+            <input class="form-control" 
+                type="number"
+                min="0"  
+                placeholder="A könyvek száma (-tól)" 
+                ng-model="rec.book_num_from" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="book_num_to">
+            A könyvek száma (-ig):
+        </label> 
+
+        <div class="col-md-6" id="book_num_to" >
+            <input class="form-control" 
+                type="number"
+                min="0" 
+                placeholder="A könyvek száma (-ig)" 
+                ng-model="rec.book_num_to" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="book_title_num_from">
+            A könyvcímek száma (-tól):
+        </label> 
+
+        <div class="col-md-6" id="book_title_num_from" >
+            <input class="form-control" 
+                type="numnber"
+                min="0"  
+                placeholder="A könyvcímek száma (-tól)" 
+                ng-model="rec.book_title_num_from" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="book_title_num_to">
+            A könyvcímek száma (-ig):
+        </label> 
+
+        <div class="col-md-6" id="book_title_num_to" >
+            <input class="form-control" 
+                type="numnber"
+                min="0"  
+                placeholder="A könyvcímek száma (-ig)" 
+                ng-model="rec.book_title_num_to" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="bh_num">
+            Számozása a BH-ban:
+        </label> 
+
+        <div class="col-md-6" id="bh_num" >
+            <input class="form-control" 
+                type="numnber"
+                min="0"    
+                placeholder="Számozása a BH-ban" 
+                ng-model="rec.bh_num" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="rec_lang">
+            Jegyzék nyelve:
+        </label> 
+
+        <div class="col-md-6" id="rec_lang" >
+            <input class="form-control" 
+                type="numnber"
+                min="0"   
+                placeholder="Jegyzék nyelve" 
+                ng-model="rec.rec_lang" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="inherit">
+            Adományozott/öröklő:
+        </label> 
+
+        <div class="col-md-6" id="inherit" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Adományozott/öröklő" 
+                ng-model="rec.inherit" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="vol_missing_num">
+            Hiányzóként megjelölt kötetek száma:
+        </label> 
+
+        <div class="col-md-6" id="vol_missing_num" >
+            <input class="form-control" 
+                type="number"
+                min="0"  
+                placeholder="Hiányzóként megjelölt kötetek száma" 
+                ng-model="rec.vol_missing_num" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="bibl">
+            Bibliográfia:
+        </label> 
+
+        <div class="col-md-6" id="bibl" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Bibliográfia" 
+                ng-model="rec.bibl" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="note">
+            Megjegyzés:
+        </label> 
+
+        <div class="col-md-6" id="note" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="Megjegyzés" 
+                ng-model="rec.note" > 
+            </input> 
+        </div>
+    </div>
+
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="text">
+            A könyvjegyzék szövege:
+        </label> 
+
+        <div class="col-md-6" id="text" >
+            <textarea class="form-control" 
+                type="text"
+                rows="30"  
+                placeholder="A könyvjegyzék szövege" 
+                ng-model="rec.text" > 
+            </textarea> 
+        </div>
+    </div>
+
+
+    <div class="form-group">
+
+        <label class="control-label col-md-3" for="prog">
+            A forrásfeldolgozás szintje:
+        </label> 
+
+        <div class="col-md-6" id="prog" >
+            <input class="form-control" 
+                type="text"  
+                placeholder="A forrásfeldolgozás szintje" 
+                ng-model="rec.prog" > 
+            </input> 
+        </div>
+    </div>
+
+    <div class="">
+        <div class="text-center">
+            <button class="btn btn-success formBtn" type="submit"> 
+                <i class="fa fa-upload"></i>
+                Feltöltés
+            </button> 
+        </div>
+    </div>
+
+
+    <pre> {{ rec | json }} </pre>
+
+    <ul>
+        <li ng-repeat="s in selectSourceType">
+            {{ s.source }}
+        </li>
+    </ul>
+
+</div>
+
+<!-- 
+Elnevezés a BH alapján
+Származási hely
+A dokumentum dátuma (-tól)
+A dokumentum dátuma (-ig)
+Forrástípus
+Intézményi/magán
+Tulajdonos neve
+Tulajdonos névváltozatai
+Tulajdonos származása
+Tulajdonoshoz köthető dátum
+Tulajdonoshoz köthető hely
+Tulajdonos foglalkozása
+Tulajdonos nemzetisége
+Jegyzék leírója
+Jegyzék egykori lelőhelye(i)
+Jegyzék mai lelőhelye, jelzete
+Jegyzék régebbi jelzete
+Jegyzék kiadása(i) (részleges/teljes)
+A könyvek száma (-tól)
+A könyvek száma (-ig)
+A könyvcímek száma (-tól)
+A könyvcímek száma (-ig)
+Számozása a BH-ban
+Jegyzék nyelve
+Adományozott/öröklő
+Hiányzóként megjelölt kötetek száma
+Bibliográfia
+Megjegyzés
+A könyvjegyzék szövege
+A forrásfeldolgozás szintje
+
+
+
+bh_name
+origin
+doc_date_from
+doc_date_to
+source_type
+ownership
+poss_name
+poss_name_var
+poss_origin
+poss_date
+poss_place
+poss_occ
+poss_nat
+rec_name
+rec_prev_place
+rec_curr_place
+rec_prev_score
+rec_pub
+book_num_from
+book_num_to
+book_title_num_from
+book_title_num_to
+bh_num
+rec_lang
+inherit
+vol_missing_num
+bibl
+note
+text
+prog
+
+ -->

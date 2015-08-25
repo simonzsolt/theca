@@ -62,6 +62,10 @@ router.route('/data')
             rec.note = req.body.note;
             rec.text = req.body.text;
             rec.prog = req.body.prog;
+            created_at =  Date.now(); // létrehozva
+            created_by = req.body.created_by;            
+            last_mod:  = req.body.last_mod;           
+            mod_by     = req.body.mod_by;
 
     		rec.save(function(err){
     			if(err)
@@ -149,6 +153,10 @@ router.route('/data/:id')
     	        rec.note = req.body.note;
     	        rec.text = req.body.text;
     	        rec.prog = req.body.prog;
+                created_at = req.body.created_at; // létrehozva
+                created_by = req.body.created_by;            
+                last_mod:  = Date.now();           
+                mod_by     = req.body.mod_by;
 
     	        rec.save(function(err){
     				console.log('updating data...');

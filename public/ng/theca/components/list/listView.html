@@ -1,0 +1,140 @@
+<div ng-cloack ng-include="'ng/shared/navbar/navView.html'"></div> 
+
+<div class="row">
+    <div class="form-group">
+        <div class="col-md-6"> <input type="text" class="form-control" 
+            placeholder="Szűrő" ng-model="filter" /> 
+        </div>
+    </div>
+</div>
+
+
+
+<table class="table table-striped table-responsive table-hover table-condensed"
+    id="listTable">
+
+    <thead>
+        <tr>
+
+            <th>
+                <a href="" ng-click="predicate = 'listIn+1'; reverse=!reverse">
+                    No. #
+                    <span ng-show="predicate == 'listIn+1'">
+                        <span ng-hide="reverse">
+                            <i class="fa fa-chevron-up"></i>
+                        </span>
+                        <span ng-show="reverse">
+                            <i class="fa fa-chevron-down"></i>
+                        </span>
+                    </span>
+                </a>
+            </th>
+
+            <th>
+                <a href="" ng-click="predicate = 'bh_name'; reverse=!reverse">
+                    Elnevezés a Bh-ban
+                    <span ng-show="predicate == 'bh_name'">
+                       <span ng-hide="reverse">
+                            <i class="fa fa-chevron-up"></i>
+                        </span>
+                        <span ng-show="reverse">
+                            <i class="fa fa-chevron-down"></i>
+                        </span>
+                    </span>
+                </a>
+            </th>
+
+            <th>
+                <a href="" ng-click="predicate = 'poss_name'; reverse=!reverse">
+                    Tulajdonos neve
+                    <span ng-show="predicate == 'poss_name'">
+                       <span ng-hide="reverse">
+                            <i class="fa fa-chevron-up"></i>
+                        </span>
+                        <span ng-show="reverse">
+                            <i class="fa fa-chevron-down"></i>
+                        </span>
+                    </span>
+                </a>
+            </th>
+
+
+            <th>
+                <a href="" ng-click="predicate = 'rec_lang'; reverse=!reverse">
+                    Jegyzék nyelve
+                    <span ng-show="predicate == 'rec_lang'">
+                       <span ng-hide="reverse">
+                            <i class="fa fa-chevron-up"></i>
+                        </span>
+                        <span ng-show="reverse">
+                            <i class="fa fa-chevron-down"></i>
+                        </span>
+                    </span>
+                </a>
+            </th>
+
+
+            <th>
+                <a href="" ng-click="predicate = 'rec_name'; reverse=!reverse">
+                    Jegyzék leírója
+                    <span ng-show="predicate == 'rec_name'">
+                        <span ng-hide="reverse">
+                            <i class="fa fa-chevron-up"></i>
+                        </span>
+                        <span ng-show="reverse">
+                            <i class="fa fa-chevron-down"></i>
+                        </span>
+                    </span>
+                </a>
+            </th>
+
+
+            <th ng-show="loggedInUser.role=='admin'">Törlés</th>
+
+            <th ng-show="loggedInUser.role=='admin'" >Szerkesztés</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        
+        <tr ng-repeat="rec in data | filter:filter | orderBy:predicate:reverse"
+            ng-init="listIn = $index">
+
+            <td> {{ listIn +1 }} </td>
+                
+            <td> {{rec.bh_name}} </td>
+
+            <!-- <td> 
+                <a href="#view/id/{{rec.bh_name}}"> 
+                    {{rec.title}} 
+                </a> 
+            </td> -->
+            
+            <td> {{rec.poss_name}} </td>
+
+            <td> {{rec.rec_lang}} </td> 
+
+            <td> {{rec.rec_name}} </td>
+
+            <td ng-show="loggedInUser.role=='admin'">
+                <button class="btn btn-danger" 
+                    ng-click="" 
+                    type="button"> 
+
+                    <i class="fa fa-times"></i>
+                </button>
+            </td>
+
+            <td ng-show="loggedInUser.role=='admin'">  
+                <a 
+                    class="btn btn-primary" 
+                    href="" 
+                    type="button" >
+
+                   <i class="fa fa-pencil-square-o"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>

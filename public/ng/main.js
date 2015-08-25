@@ -1,6 +1,8 @@
 angular.module('thecaApp', 
     [
         'ngRoute',
-        'ngResource'
+        'ngResource',
+        'ui.date',
+        'angucomplete'
     ]
 );

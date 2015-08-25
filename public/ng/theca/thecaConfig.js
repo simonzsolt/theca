@@ -53,8 +53,13 @@ angular
             $routeProvider
 
                 .when('/list', {
-                    templateUrl: 'ng/theca/list/listView.html',
+                    templateUrl: 'ng/theca/components/list/listView.html',
                     controller: 'listCtrl',
+                })
+                
+                .when('/upload', {
+                    templateUrl: 'ng/theca/components/upload/uploadView.html',
+                    controller: 'uploadCtrl',
                 });
                 
         }); // config

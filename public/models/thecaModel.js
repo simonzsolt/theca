@@ -42,7 +42,19 @@ var Theca = new mongoose.Schema({
     bibl: Array,
     note: String,
     text: String,
-    prog: String
+    prog: String,
+    created_at:
+        {
+            type: Date, 
+            default: Date.now()
+        }, // létrehozva
+    created_by: String, // felhasználónév - USER API!
+    last_mod:   
+        {
+            type: Date
+        }, // utolsó módosítás
+
+    mod_by:     String, 
     
     },
     
