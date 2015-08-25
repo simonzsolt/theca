@@ -19,8 +19,8 @@ body{
 
 
 /*NG AUTOCOMPLETE*/
-
-.nacContainer:hover 
+/*
+.nacContainer
 
 .nacOuter{display: block;}
 
@@ -51,4 +51,4 @@ body{
 .nacInner > div:hover {
     background: #66afe9; 
     color: black;
-}
+}*/

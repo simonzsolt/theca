@@ -20,11 +20,6 @@ angular
                         $scope.selectSourceType = Arr;
                     });
 
-                    $scope.fnFormatter = function (item) {
-                        // show 'tomtom' in the list for example
-                        return $sce.trustAsHtml(item);
-                    };
-
                     var Arr = [];
                     angular.forEach(data ,function(value, index){
                         if(value.rec_lang !== '' && 
