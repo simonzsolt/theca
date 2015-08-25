@@ -64,7 +64,7 @@ router.route('/data')
             rec.prog = req.body.prog;
             created_at =  Date.now(); // létrehozva
             created_by = req.body.created_by;            
-            last_mod:  = req.body.last_mod;           
+            last_mod   = req.body.last_mod;           
             mod_by     = req.body.mod_by;
 
     		rec.save(function(err){
@@ -155,7 +155,7 @@ router.route('/data/:id')
     	        rec.prog = req.body.prog;
                 created_at = req.body.created_at; // létrehozva
                 created_by = req.body.created_by;            
-                last_mod:  = Date.now();           
+                last_mod   = Date.now();           
                 mod_by     = req.body.mod_by;
 
     	        rec.save(function(err){

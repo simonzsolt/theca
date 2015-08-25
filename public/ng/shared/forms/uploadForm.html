@@ -67,16 +67,12 @@
         </label> 
 
         <div class="col-md-6" id="source_type" >
-            <angucomplete 
-            id="source" 
-            placeholder="Forrástípus" 
-            selectedobject="selected" 
-            localdata="selectSourceType" 
-            searchfields="source" 
-            titlefield="source" 
-            minlength="1" 
-            inputclass="form-control" 
-            matchclass="highlight"/>
+          
+           <ng-auto-complete
+                ng-model="rec.source_type"
+                nac-formatter="fnFormatter"
+                nac-data="selectSourceType"/>
+
         </div>
     </div>
 
@@ -362,12 +358,9 @@
         </label> 
 
         <div class="col-md-6" id="rec_lang" >
-            <input class="form-control" 
-                type="numnber"
-                min="0"   
-                placeholder="Jegyzék nyelve" 
-                ng-model="rec.rec_lang" > 
-            </input> 
+
+            <!-- autocomplete here -->
+
         </div>
     </div>
 
@@ -476,12 +469,6 @@
 
 
     <pre> {{ rec | json }} </pre>
-
-    <ul>
-        <li ng-repeat="s in selectSourceType">
-            {{ s.source }}
-        </li>
-    </ul>
 
 </div>
 

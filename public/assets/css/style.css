@@ -1,4 +1,7 @@
-body{ padding-top: 70px }
+body{ 
+    padding-top: 70px; 
+    font-family: 'Roboto';
+}
 
 #listTable{
     table-layout: fixed;
@@ -8,4 +11,44 @@ body{ padding-top: 70px }
 .formBtn{ 
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+.centered-col{
+    text-align: center;
+}
+
+
+/*NG AUTOCOMPLETE*/
+
+.nacContainer:hover 
+
+.nacOuter{display: block;}
+
+.nacOuter{
+    position: relative; 
+    display: none;
+}
+
+.nacInner{
+    width: 100%;
+    max-height: 250px;
+    overflow: auto; 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    z-index: 10; 
+    background: #fff; 
+    border: 1px solid #66afe9;
+    border-radius: 4px;
+    border-top: none; 
+    box-shadow: 0 0 5px rgba(0,0,0,.1);
+}
+
+.nacInner > div{
+    padding: 10px; 
+    cursor: pointer;
+}
+.nacInner > div:hover {
+    background: #66afe9; 
+    color: black;
 }

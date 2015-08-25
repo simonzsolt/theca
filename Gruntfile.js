@@ -38,14 +38,17 @@ module.exports = function(grunt) {
                 script: 'server.js',
                 options: {
                     watch: [ 
-                        'node_modules', 
-                        'public/ng**/.js',
-                        'public/ng**/**/.js',
-                        'public/ng**/**/**/.js',
-                        'public/ng**/**/**/**/.js',
+                        'node_modules',
+                        'public',
                         'routes',
-                        'views',
-                        './*.js' 
+                        'views'
+                        // 'public/ng**/.js',
+                        // 'public/ng**/**/.js',
+                        // 'public/ng**/**/**/.js',
+                        // 'public/ng**/**/**/**/.js',
+                        // 'routes',
+                        // 'views',
+                        // './*.js' 
                     ],
                     extensions: [ 'js,ejs,css' ],
                     harmony: true,
@@ -70,7 +73,7 @@ module.exports = function(grunt) {
         open : {
             debug : {
                 path: 'http://localhost:8989/?ws=localhost:8989&port=5857',
-                app: 'uzbl'
+                app: 'google-chrome-stable'
             }
         }
     });
@@ -80,8 +83,8 @@ module.exports = function(grunt) {
         [
             'devUpdate',
             'wiredep',
-            'watch',
-            'supervisor'    
+            'supervisor',  
+            'watch'  
         ]
     );
 

@@ -15,15 +15,16 @@
     "tests"
   ],
   "dependencies": {
-    "angucomplete": "*",
     "angular": "~1.4.4",
     "angular-resource": "~1.4.4",
     "angular-route": "~1.4.4",
+    "angular-sanitize": "~1.4.4",
     "angular-ui-date": "~0.0.8",
     "bootstrap": "~3.3.5",
     "font-awesome": "~4.4.0",
     "jquery": "~2.1.4",
     "jquery-ui": "~1.11.4",
-    "jquery-ui-smoothness": "~1.11.1"
+    "ngAutoComplete": "git://github.com/tommyfok/ngAutoComplete.git#~0.1.1",
+    "roboto-fontface": "~0.4.3"
   }
 }

@@ -6,21 +6,34 @@ angular
         .controller('uploadFormCtrl', [
             '$scope',
             'thecaFactory',
-            '$rootScope', function($scope, thecaFactory, $rootScope){
+            '$sce',
+            '$rootScope', function($scope, thecaFactory, $sce, $rootScope){
 
-                $scope.data = thecaFactory.query(function(){
+
+                var data = thecaFactory.query(function(){
                     var Arr = [];
-                    angular.forEach($scope.data ,function(value, index){
+                    angular.forEach(data ,function(value, index){
                         if(value.source_type !== '' && 
                             Arr.indexOf(value.source_type) == -1){
                             Arr.push(value.source_type);
                         }
-                    $scope.selectSourceType = [];
+                        $scope.selectSourceType = Arr;
                     });
-                    angular.forEach(Arr ,function(value, index){
-                        $scope.selectSourceType.push({source: value});
-                    });
+
+                    $scope.fnFormatter = function (item) {
+                        // show 'tomtom' in the list for example
+                        return $sce.trustAsHtml(item);
+                    };
+
                     var Arr = [];
+                    angular.forEach(data ,function(value, index){
+                        if(value.rec_lang !== '' && 
+                            Arr.indexOf(value.rec_lang) == -1){
+                            Arr.push(value.rec_lang);
+                        }
+                        $scope.selectRecLang = Arr;
+                    });
+
                 });
 
                 $scope.months = [

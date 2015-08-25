@@ -1,7 +1,6 @@
 angular    
     .module('thecaApp')
 
-
 // -----------------------------LIST CONTROLLER-----------------------------
 
 
