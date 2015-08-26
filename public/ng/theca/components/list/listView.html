@@ -2,7 +2,8 @@
 
 <div class="row list-filter">
     <div class="form-group">
-        <div class="col-md-6 col-md-offset-3"> 
+        <div class="col-md-6 col-md-offset-3">
+            <i class="fa fa-filter"></i>
             <input type="text" 
                 class="form-control" 
                 placeholder="Szűrő" 
@@ -19,19 +20,7 @@
     <thead>
         <tr>
 
-            <th class="">
-                <a href="" ng-click="predicate = 'listIn+1'; reverse=!reverse">
-                    No. #
-                    <span ng-show="predicate == 'listIn+1'">
-                        <span ng-hide="reverse">
-                            <i class="fa fa-chevron-up"></i>
-                        </span>
-                        <span ng-show="reverse">
-                            <i class="fa fa-chevron-down"></i>
-                        </span>
-                    </span>
-                </a>
-            </th>
+            <th class="">&#8470;</th>
 
             <th class="centered-col">
                 <a href="" ng-click="predicate = 'bh_name'; reverse=!reverse">
@@ -108,13 +97,7 @@
 
             <td> <big> {{ $index +1 }} </big> </td>
                 
-            <td> {{rec.bh_name}} </td>
-
-            <!-- <td> 
-                <a href="#view/id/{{rec.bh_name}}"> 
-                    {{rec.title}} 
-                </a> 
-            </td> -->
+            <td> <a href="#view/id/{{ rec._id }}"> {{rec.bh_name}} </a> </td>
             
             <td> {{rec.poss_name}} </td>
 

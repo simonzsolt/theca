@@ -6,7 +6,7 @@
             Elnevezés a BH alapján:
         </label> 
 
-        <div class="col-md-6" id="bh_name" >
+        <div class="col-md-8" id="bh_name" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Elnevezés a BH alapján" 
@@ -21,7 +21,7 @@
             Származási hely:
         </label> 
 
-        <div class="col-md-6" id="origin" >
+        <div class="col-md-8" id="origin" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Származási hely" 
@@ -36,7 +36,7 @@
             A dokumentum dátuma (-tól):
         </label> 
 
-        <div class="col-md-6" id="doc_date_from" >
+        <div class="col-md-8" id="doc_date_from" >
             <input class="form-control"
                 ui-date="dateOptions"
                 placeholder="A dokumentum dátuma (-tól)" 
@@ -51,7 +51,7 @@
             A dokumentum dátuma (-ig):
         </label> 
 
-        <div class="col-md-6" id="doc_date_to" >
+        <div class="col-md-8" id="doc_date_to" >
             <input class="form-control"
                 ui-date="dateOptions"
                 placeholder="A dokumentum dátuma (-ig)" 
@@ -66,7 +66,7 @@
             Forrástípus:
         </label> 
 
-        <div class="col-md-6" id="source_type" >
+        <div class="col-md-8" id="source_type" >
           
             <input class="form-control"
                 type="text"
@@ -82,7 +82,7 @@
             Intézményi/magán:
         </label> 
 
-        <div class="col-md-6" id="ownership" >
+        <div class="col-md-8" id="ownership" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Intézményi/magán" 
@@ -97,7 +97,7 @@
             Tulajdonos neve:
         </label> 
 
-        <div class="col-md-6" id="poss_name" >
+        <div class="col-md-8" id="poss_name" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Tulajdonos neve" 
@@ -112,7 +112,7 @@
             Tulajdonos névváltozatai:
         </label> 
 
-        <div class="col-md-6" id="poss_name_var" >
+        <div class="col-md-8" id="poss_name_var" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Tulajdonos névváltozatai" 
@@ -127,7 +127,7 @@
             Tulajdonos származása:
         </label> 
 
-        <div class="col-md-6" id="poss_origin" >
+        <div class="col-md-8" id="poss_origin" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Tulajdonos származása" 
@@ -142,7 +142,7 @@
             Tulajdonoshoz köthető dátum:
         </label> 
 
-        <div class="col-md-6" id="poss_date" >
+        <div class="col-md-8" id="poss_date" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Tulajdonoshoz köthető dátum" 
@@ -157,7 +157,7 @@
             Tulajdonoshoz köthető hely:
         </label> 
 
-        <div class="col-md-6" id="poss_place" >
+        <div class="col-md-8" id="poss_place" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Tulajdonoshoz köthető hely" 
@@ -172,7 +172,7 @@
             Tulajdonos foglalkozása:
         </label> 
 
-        <div class="col-md-6" id="poss_occ" >
+        <div class="col-md-8" id="poss_occ" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Tulajdonos foglalkozása" 
@@ -187,7 +187,7 @@
             Tulajdonos nemzetisége:
         </label> 
 
-        <div class="col-md-6" id="poss_nat" >
+        <div class="col-md-8" id="poss_nat" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Tulajdonos nemzetisége" 
@@ -202,7 +202,7 @@
             Jegyzék leírója:
         </label> 
 
-        <div class="col-md-6" id="rec_name" >
+        <div class="col-md-8" id="rec_name" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Jegyzék leírója" 
@@ -217,7 +217,7 @@
             Jegyzék egykori lelőhelye(i):
         </label> 
 
-        <div class="col-md-6" id="rec_prev_place" >
+        <div class="col-md-8" id="rec_prev_place" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Jegyzék egykori lelőhelye(i)" 
@@ -232,7 +232,7 @@
             Jegyzék mai lelőhelye, jelzete:
         </label> 
 
-        <div class="col-md-6" id="rec_curr_place" >
+        <div class="col-md-8" id="rec_curr_place" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Jegyzék mai lelőhelye, jelzete" 
@@ -247,7 +247,7 @@
             Jegyzék régebbi jelzete:
         </label> 
 
-        <div class="col-md-6" id="rec_prev_score" >
+        <div class="col-md-8" id="rec_prev_score" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Jegyzék régebbi jelzete" 
@@ -258,7 +258,7 @@
 
     <div>
 
-        <h4>
+        <h4 class="formPart" >
             Jegyzék kiadása(i) (részleges/teljes)
         </h4>
 
@@ -267,21 +267,26 @@
                 <label class="control-label col-md-3" for="rec_pub">
 
                      <span>
-                        <a ng-click="addPub()" 
-                            ng-show="$last" href="">
+                        <button type="button" 
+                            class="btn btn-default btn-xs" 
+                            ng-click="addPub()" 
+                            ng-show="$last" 
+                            href="">
                             <i class="fa fa-plus"></i>
-                        </a>
+                        </button>
 
-                        <a ng-click="removePub()" 
-                            ng-show="$last && $index > 0" href="">
+                        <button ng-click="removePub()"
+                            class="btn btn-default btn-xs"  
+                            ng-show="$last && $index > 0" 
+                            href="">
                             <i class="fa fa-minus"></i>
-                        </a>
+                        </button>
                     </span>
 
-                    Kiadás # {{ pubIn +1 }} : 
+                    Kiadás <span class="badge"># {{ pubIn +1 }}</span> :
                 </label> 
 
-                <div class="col-md-6" id="rec_pub" >
+                <div class="col-md-8" id="rec_pub" >
                     <input class="form-control" 
                         type="text"  
                         placeholder="Jegyzék kiadása(i) (részleges/teljes)" 
@@ -300,7 +305,7 @@
             A könyvek száma (-tól):
         </label> 
 
-        <div class="col-md-6" id="book_num_from" >
+        <div class="col-md-8" id="book_num_from" >
             <input class="form-control" 
                 type="number"
                 min="0"  
@@ -316,7 +321,7 @@
             A könyvek száma (-ig):
         </label> 
 
-        <div class="col-md-6" id="book_num_to" >
+        <div class="col-md-8" id="book_num_to" >
             <input class="form-control" 
                 type="number"
                 min="0" 
@@ -332,7 +337,7 @@
             A könyvcímek száma (-tól):
         </label> 
 
-        <div class="col-md-6" id="book_title_num_from" >
+        <div class="col-md-8" id="book_title_num_from" >
             <input class="form-control" 
                 type="numnber"
                 min="0"  
@@ -348,7 +353,7 @@
             A könyvcímek száma (-ig):
         </label> 
 
-        <div class="col-md-6" id="book_title_num_to" >
+        <div class="col-md-8" id="book_title_num_to" >
             <input class="form-control" 
                 type="numnber"
                 min="0"  
@@ -364,7 +369,7 @@
             Számozása a BH-ban:
         </label> 
 
-        <div class="col-md-6" id="bh_num" >
+        <div class="col-md-8" id="bh_num" >
             <input class="form-control" 
                 type="numnber"
                 min="0"    
@@ -380,7 +385,7 @@
             Jegyzék nyelve:
         </label> 
 
-        <div class="col-md-6" id="rec_lang" >
+        <div class="col-md-8" id="rec_lang" >
 
             <input class="form-control" 
                 type="text"  
@@ -397,7 +402,7 @@
             Adományozott/öröklő:
         </label> 
 
-        <div class="col-md-6" id="inherit" >
+        <div class="col-md-8" id="inherit" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Adományozott/öröklő" 
@@ -412,7 +417,7 @@
             Hiányzóként megjelölt kötetek száma:
         </label> 
 
-        <div class="col-md-6" id="vol_missing_num" >
+        <div class="col-md-8" id="vol_missing_num" >
             <input class="form-control" 
                 type="number"
                 min="0"  
@@ -422,9 +427,7 @@
         </div>
     </div>
 
-    <div>
-
-        <h4>Bibliográfia</h4>
+    <h4 class="formPart">Bibliográfia</h4>
       
         <div ng-repeat="bibl in rec.bibl">
 
@@ -432,22 +435,26 @@
                 <label class="control-label col-md-3" for="bibl">
 
                     <span>
-                        <a ng-click="addBibl()" 
+                        <button type="button" 
+                            class="btn btn-default btn-xs" 
+                            ng-click="addBibl()" 
                             ng-show="$last" href="">
                             <i class="fa fa-plus"></i>
-                        </a>
+                        </button>
 
-                        <a ng-click="removeBibl()" 
+                        <button type="button" 
+                            class="btn btn-default btn-xs"
+                            ng-click="removeBibl()" 
                             ng-show="$last && $index > 0" href="">
                             <i class="fa fa-minus"></i>
-                        </a>
+                        </button>
                     </span>
 
 
-                    #{{ $index +1 }}:
+                    Tétel <span class="badge"> #{{ $index +1 }} </span> :
                 </label> 
 
-                <div class="col-md-6" id="bibl" >
+                <div class="col-md-8" id="bibl" >
                     <input class="form-control" 
                         type="text"  
                         placeholder="Bibliográfia" 
@@ -466,7 +473,7 @@
             Megjegyzés:
         </label> 
 
-        <div class="col-md-6" id="note" >
+        <div class="col-md-8" id="note" >
             <input class="form-control" 
                 type="text"  
                 placeholder="Megjegyzés" 
@@ -482,7 +489,7 @@
             A könyvjegyzék szövege:
         </label> 
 
-        <div class="col-md-6" id="text" >
+        <div class="col-md-8" id="text" >
             <textarea class="form-control" 
                 type="text"
                 rows="30"  
@@ -499,7 +506,7 @@
             A forrásfeldolgozás szintje:
         </label> 
 
-        <div class="col-md-6" id="prog" >
+        <div class="col-md-8" id="prog" >
             <input class="form-control" 
                 type="text"  
                 placeholder="A forrásfeldolgozás szintje" 

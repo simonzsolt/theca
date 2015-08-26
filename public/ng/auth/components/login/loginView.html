@@ -1,15 +1,10 @@
 <div class="container-fluid" ng-include="'ng/shared/navbar/navView.html'"></div> 
 
 <div class="container-fluid">
-    <div class="jumbotron">
-        <h1>Bejelentkezés  
-       <!--  	<small class="error">  
-        		<span ng-show="message" class="glyphicon glyphicon-exclamation-sign"></span>
-        		{{ message }}  
-        	</small>  -->
-        </h1>
 
-    </div>
+<div ng-cloack class="page-header col-md-10 col-md-offset-1">
+    <h1> Bejelentkezés </h1>
+</div>
 
 <form class="form-horizontal" role="form" ng-submit="login()" > 
 	<div ng-include src="'ng/auth/components/login/loginForm.html'"></div>

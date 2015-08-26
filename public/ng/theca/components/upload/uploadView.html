@@ -1,6 +1,15 @@
 <div ng-cloack ng-include="'ng/shared/navbar/navView.html'"></div> 
 
 <div ng-cloack >
+
+     <div ng-cloack class="page-header col-md-10 col-md-offset-1">
+        <h1> Feltöltés
+            <small>
+                {{ rec.bh_name }} 
+            </small>
+        </h1>
+    </div>
+
     <form class="form-horizontal" 
         role="form" ng-submit="postRec()">
         <ng-include 
@@ -17,6 +26,6 @@
         </div>
     </form>
 
-    <pre> {{ rec | json }} </pre>
+    <!-- <pre> {{ rec | json }} </pre> -->
     
 </div>

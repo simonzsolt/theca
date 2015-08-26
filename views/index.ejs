@@ -17,7 +17,16 @@
 
 <body class="container-fluid" ng-app="thecaApp">
 
-    <ng-view class="container-fluid"></ng-view>
+    <div class="partials">
+        <ng-view ng-cloack class="container-fluid"></ng-view>
+    </div>
+    
+
+    <div id="footer">
+        <div id="footer-content">
+            <span >theca</span>    
+        </div> 
+    </div>
 
     <!-- bower:js -->
     <script src="/assets/lib/jquery/dist/jquery.js"></script>
@@ -40,6 +49,7 @@
     <script src="/ng/theca/components/list/listCtrl.js"></script>
     <script src="/ng/theca/components/upload/uploadCtrl.js"></script>
     <script src="/ng/theca/components/edit/editCtrl.js"></script>
+    <script src="/ng/theca/components/view/viewCtrl.js"></script>
     <script src="/ng/shared/forms/uploadFormCtrl.js"></script>
 
 
