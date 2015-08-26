@@ -60,7 +60,7 @@ angular
                 if ($rootScope.loggedInUser.role !== 'user') {                       
 
                         $scope.post_conf = confirm(
-                                'Biztosan fel akarja tölteni a ezt a verset?');
+                                'Biztosan fel akarja tölteni a ezt a jegyzéket?');
 
                         if( $scope.post_conf === true ) {
 

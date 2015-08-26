@@ -1,0 +1,34 @@
+<div ng-cloack ng-include="'ng/shared/navbar/navView.html'"></div> 
+
+<div ng-cloack >
+
+    <div ng-cloack class="page-header col-md-10 col-md-offset-1">
+        <h1> Szerkesztő
+            <small>
+                {{ rec.bh_name }} 
+                ({{ rec.doc_date_from | date:"y-MM-dd" }} &mdash; 
+                {{ rec.doc_date_to | date:"y-MM-dd" }}) 
+            </small>
+        </h1>
+    </div>
+
+    <form class="form-horizontal" 
+        role="form" ng-submit="editRec()">
+        <ng-include 
+            src="'ng/shared/forms/uploadForm.html'">
+        </ng-include>
+
+        <div class="">
+            <div class="text-center">
+                <button class="btn btn-success formBtn" type="submit"> 
+                    <i class="fa fa-upload"></i>
+                    Feltöltés
+                </button> 
+            </div>
+        </div>
+    </form>
+
+    <!-- <pre> {{ rec | json }} </pre> -->
+
+    </form>
+</div>

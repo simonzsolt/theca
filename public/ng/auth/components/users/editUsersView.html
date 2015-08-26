@@ -1,17 +1,17 @@
 <div ng-include="'ng/shared/navbar/navView.html'"></div> 
 
-<div>
-    <div class="jumbotron">
-        <h2>
-        	{{user.nickname}}
-        	<small> 
- 
-        		/ 	{{ user.last_name }} 
-        			{{ user.first_name }} 
+<div ng-cloack class="page-header col-md-10 col-md-offset-1">
+     <h2>
+        {{user.nickname}}
+        <small> 
 
-        	</small> 
-        </h2>
-    </div>
+            /   {{ user.last_name }} 
+                {{ user.first_name }} 
+
+        </small> 
+    </h2>
+</div>
+
 
 
     <form class="form-horizontal" role="form" ng-submit="editUser()">

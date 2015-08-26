@@ -1,9 +1,13 @@
 <div ng-cloack ng-include="'ng/shared/navbar/navView.html'"></div> 
 
-<div class="row">
+<div class="row list-filter">
     <div class="form-group">
-        <div class="col-md-6"> <input type="text" class="form-control" 
-            placeholder="Szűrő" ng-model="filter" /> 
+        <div class="col-md-6 col-md-offset-3">
+            <i class="fa fa-filter"></i>
+            <input type="text" 
+                class="form-control" 
+                placeholder="Szűrő" 
+                ng-model="filter" /> 
         </div>
     </div>
 </div>
@@ -16,21 +20,9 @@
     <thead>
         <tr>
 
-            <th>
-                <a href="" ng-click="predicate = 'listIn+1'; reverse=!reverse">
-                    No. #
-                    <span ng-show="predicate == 'listIn+1'">
-                        <span ng-hide="reverse">
-                            <i class="fa fa-chevron-up"></i>
-                        </span>
-                        <span ng-show="reverse">
-                            <i class="fa fa-chevron-down"></i>
-                        </span>
-                    </span>
-                </a>
-            </th>
+            <th class="">&#8470;</th>
 
-            <th>
+            <th class="centered-col">
                 <a href="" ng-click="predicate = 'bh_name'; reverse=!reverse">
                     Elnevezés a Bh-ban
                     <span ng-show="predicate == 'bh_name'">
@@ -44,7 +36,7 @@
                 </a>
             </th>
 
-            <th>
+            <th class="centered-col">
                 <a href="" ng-click="predicate = 'poss_name'; reverse=!reverse">
                     Tulajdonos neve
                     <span ng-show="predicate == 'poss_name'">
@@ -59,7 +51,7 @@
             </th>
 
 
-            <th>
+            <th class="centered-col">
                 <a href="" ng-click="predicate = 'rec_lang'; reverse=!reverse">
                     Jegyzék nyelve
                     <span ng-show="predicate == 'rec_lang'">
@@ -74,7 +66,7 @@
             </th>
 
 
-            <th>
+            <th class="centered-col">
                 <a href="" ng-click="predicate = 'rec_name'; reverse=!reverse">
                     Jegyzék leírója
                     <span ng-show="predicate == 'rec_name'">
@@ -89,9 +81,11 @@
             </th>
 
 
-            <th ng-show="loggedInUser.role=='admin'">Törlés</th>
+            <th class="centered-col" 
+                ng-show="loggedInUser.role=='admin'">Eltávolítás</th>
 
-            <th ng-show="loggedInUser.role=='admin'" >Szerkesztés</th>
+            <th class="centered-col" 
+                ng-show="loggedInUser.role=='admin'" >Szerkesztés</th>
 
         </tr>
     </thead>
@@ -101,15 +95,9 @@
         <tr ng-repeat="rec in data | filter:filter | orderBy:predicate:reverse"
             ng-init="listIn = $index">
 
-            <td> {{ listIn +1 }} </td>
+            <td> <big> {{ $index +1 }} </big> </td>
                 
-            <td> {{rec.bh_name}} </td>
-
-            <!-- <td> 
-                <a href="#view/id/{{rec.bh_name}}"> 
-                    {{rec.title}} 
-                </a> 
-            </td> -->
+            <td> <a href="#view/id/{{ rec._id }}"> {{rec.bh_name}} </a> </td>
             
             <td> {{rec.poss_name}} </td>
 
@@ -117,19 +105,19 @@
 
             <td> {{rec.rec_name}} </td>
 
-            <td ng-show="loggedInUser.role=='admin'">
+            <td class="centered-col" ng-show="loggedInUser.role=='admin'">
                 <button class="btn btn-danger" 
-                    ng-click="" 
+                    ng-click="delRec(rec._id)" 
                     type="button"> 
 
                     <i class="fa fa-times"></i>
                 </button>
             </td>
 
-            <td ng-show="loggedInUser.role=='admin'">  
+            <td class="centered-col" ng-show="loggedInUser.role=='admin'">  
                 <a 
                     class="btn btn-primary" 
-                    href="" 
+                    href="#edit/id/{{ rec._id }}" 
                     type="button" >
 
                    <i class="fa fa-pencil-square-o"></i>

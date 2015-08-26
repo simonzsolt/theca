@@ -6,21 +6,29 @@ angular
         .controller('uploadFormCtrl', [
             '$scope',
             'thecaFactory',
-            '$rootScope', function($scope, thecaFactory, $rootScope){
+            '$sce',
+            '$rootScope', function($scope, thecaFactory, $sce, $rootScope){
 
-                $scope.data = thecaFactory.query(function(){
+
+                var data = thecaFactory.query(function(){
                     var Arr = [];
-                    angular.forEach($scope.data ,function(value, index){
+                    angular.forEach(data ,function(value, index){
                         if(value.source_type !== '' && 
                             Arr.indexOf(value.source_type) == -1){
                             Arr.push(value.source_type);
                         }
-                    $scope.selectSourceType = [];
+                        $scope.selectSourceType = Arr;
                     });
-                    angular.forEach(Arr ,function(value, index){
-                        $scope.selectSourceType.push({source: value});
-                    });
+
                     var Arr = [];
+                    angular.forEach(data ,function(value, index){
+                        if(value.rec_lang !== '' && 
+                            Arr.indexOf(value.rec_lang) == -1){
+                            Arr.push(value.rec_lang);
+                        }
+                        $scope.selectRecLang = Arr;
+                    });
+
                 });
 
                 $scope.months = [
@@ -69,4 +77,34 @@ angular
                     ],
                     firstDay: 1
                 };
+
+                // record publishes array
+                $scope.rec.rec_pub = [{ item: '' }];
+
+                // adding to aray
+                $scope.addPub = function addPub(){
+                    $scope.rec.rec_pub.push({ item: '' });
+                };
+
+                // removing from array
+                $scope.removePub = function removePub(){
+                    var lastItem = $scope.rec.rec_pub.length -1;
+                    $scope.rec.rec_pub.splice(lastItem, 1); 
+                };
+
+                // bibliography array
+                $scope.rec.bibl = [{ item: '' }];
+
+                 // adding to aray
+                $scope.addBibl = function addBibl(){
+                    $scope.rec.bibl.push({ item: '' });
+                };
+
+                // removing from array
+                $scope.removeBibl = function removeBibl(){
+                    var lastItem = $scope.rec.bibl.length -1;
+                    $scope.rec.bibl.splice(lastItem, 1); 
+                };
+
+
             }]);

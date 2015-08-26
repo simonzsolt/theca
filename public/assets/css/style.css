@@ -1,4 +1,7 @@
-body{ padding-top: 70px }
+body{ 
+    padding: 70px 0px 0px 0px !important; 
+    font-family: 'Roboto';
+}
 
 #listTable{
     table-layout: fixed;
@@ -9,3 +12,107 @@ body{ padding-top: 70px }
     margin-top: 50px;
     margin-bottom: 50px;
 }
+
+.centered-col{
+    text-align: center;
+}
+
+.list-filter{
+    margin-bottom: 30px;
+}
+
+.list-filter input {
+    padding-left: 30px;    
+}
+
+.list-filter i{
+    position: absolute;
+    padding: 10px 12px;
+    pointer-events: none;
+}
+
+.list-group-item-text{
+    text-indent: 20px;
+}
+
+.text-heading {
+    padding: 25px 25px 0px 25px;
+}
+
+.text{
+    padding: 25px;
+    text-indent: 20px;
+}
+
+#footer{
+    display: table;
+    width: 100%;
+    height: 250px;
+    margin-top: 150px;
+    background-color: #101010;
+    color: #949494;
+    text-align: center;
+    vertical-align: middle;
+}
+
+#footer-content{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.partials{
+    padding: 0px 50px 0px 50px;
+}
+
+#userNav{
+    float: right;
+}
+
+.nav{
+    padding-left: 50px; 
+    padding-right: 50px; 
+}
+
+.navbar{
+    background-color: #101010;
+    color: #949494;
+}
+
+.formPart{
+    text-indent: 50px;
+}
+
+/*NG AUTOCOMPLETE*/
+/*
+.nacContainer
+
+.nacOuter{display: block;}
+
+.nacOuter{
+    position: relative; 
+    display: none;
+}
+
+.nacInner{
+    width: 100%;
+    max-height: 250px;
+    overflow: auto; 
+    position: absolute; 
+    left: 0; 
+    top: 0; 
+    z-index: 10; 
+    background: #fff; 
+    border: 1px solid #66afe9;
+    border-radius: 4px;
+    border-top: none; 
+    box-shadow: 0 0 5px rgba(0,0,0,.1);
+}
+
+.nacInner > div{
+    padding: 10px; 
+    cursor: pointer;
+}
+.nacInner > div:hover {
+    background: #66afe9; 
+    color: black;
+}*/

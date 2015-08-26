@@ -1,7 +1,6 @@
 angular    
     .module('thecaApp')
 
-
 // -----------------------------LIST CONTROLLER-----------------------------
 
 
@@ -20,7 +19,7 @@ angular
                 $scope.predicate = '';
 
                 // deleting items by _id
-                $scope.deleteRec = function(rec_id){
+                $scope.delRec = function(rec_id){
 
                     $scope.del_conf = confirm(
                         'Biztosan törölni szeretné ezt a jegyzéket?');
@@ -34,4 +33,5 @@ angular
 
                     }; // if scope del_conf
                 }; //$scope.deleteRec
+                
         }]); // controller

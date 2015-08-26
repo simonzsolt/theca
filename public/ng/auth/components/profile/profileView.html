@@ -1,26 +1,24 @@
 <div ng-include="'ng/shared/navbar/navView.html'"></div> 
 
-<div>
-    <div class="jumbotron">
-        <h2>
-        	Fiók: {{ loggedInUser.nickname }} - 
-        		<small> 
-                    létrehozva: {{ loggedInUser.created_at | date:"y-MM-d H:m:s" }} 
-                </small>
-        </h2>
-    </div>
+<div ng-cloack class="page-header col-md-10 col-md-offset-1">
+    <h2>Fiók: {{ loggedInUser.nickname }} 
+        <small> 
+            (létrehozva: {{ loggedInUser.created_at | date:"y-MM-d H:m:s" }}) 
+        </small>
+    </h2>
+</div>
 
-    <h3 ng-show="loggedInUser.role=='admin'"> 
-    	<a class="btn btn-default" href="#users">
+    <div class="col-md-offset-1" ng-show="loggedInUser.role=='admin'"> 
+        <a class="btn btn-default" href="#users">
             <i class="fa fa-user"></i>
             Felhasználók
         </a> 
-    </h3>
+    </div>
 
-     <form class="form-horizontal" role="form" ng-submit="editProfile()">
-    
-    	<div ng-cloack 
-            ng-include="'ng/auth/components/profile/editProfileForm.html'">   
-        </div>
+<form class="form-horizontal" role="form" ng-submit="editProfile()">
 
-    </form>
+<div ng-cloack 
+    ng-include="'ng/auth/components/profile/editProfileForm.html'">   
+</div>
+
+</form>

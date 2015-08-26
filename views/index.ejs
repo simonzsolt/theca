@@ -7,25 +7,33 @@
     <link rel="stylesheet" type="text/css" 
         href="/assets/lib/font-awesome/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
-   <!--  <link rel="stylesheet" 
-        href="assets/lib/jquery-ui/themes/smoothness/jquery-ui.css"/> -->
+    <link rel="stylesheet" 
+        href="assets/lib/jquery-ui/themes/smoothness/jquery-ui.css"/>
     <link rel="stylesheet" type="text/css" 
-        href="/assets/lib/jquery-ui-smoothness/jquery-ui.css">
-        <link rel="stylesheet" type="text/css" 
-            href="/assets/lib/angucomplete/angucomplete.css">
+        href="/assets/lib/roboto-fontface/css/roboto-fontface.css">
+
   
 </head>
 
 <body class="container-fluid" ng-app="thecaApp">
 
-    <ng-view class="container-fluid"></ng-view>
+    <div class="partials">
+        <ng-view ng-cloack class="container-fluid"></ng-view>
+    </div>
+    
+
+    <div id="footer">
+        <div id="footer-content">
+            <span >theca</span>    
+        </div> 
+    </div>
 
     <!-- bower:js -->
     <script src="/assets/lib/jquery/dist/jquery.js"></script>
     <script src="/assets/lib/angular/angular.js"></script>
-    <script src="/assets/lib/angucomplete/angucomplete.js"></script>
     <script src="/assets/lib/angular-resource/angular-resource.js"></script>
     <script src="/assets/lib/angular-route/angular-route.js"></script>
+    <script src="/assets/lib/angular-sanitize/angular-sanitize.js"></script>
     <script src="/assets/lib/jquery-ui/jquery-ui.js"></script>
     <script src="/assets/lib/angular-ui-date/src/date.js"></script>
     <script src="/assets/lib/bootstrap/dist/js/bootstrap.js"></script>
@@ -40,6 +48,8 @@
     
     <script src="/ng/theca/components/list/listCtrl.js"></script>
     <script src="/ng/theca/components/upload/uploadCtrl.js"></script>
+    <script src="/ng/theca/components/edit/editCtrl.js"></script>
+    <script src="/ng/theca/components/view/viewCtrl.js"></script>
     <script src="/ng/shared/forms/uploadFormCtrl.js"></script>
 
 
