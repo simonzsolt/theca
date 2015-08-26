@@ -1,9 +1,12 @@
 <div ng-cloack ng-include="'ng/shared/navbar/navView.html'"></div> 
 
-<div class="row">
+<div class="row list-filter">
     <div class="form-group">
-        <div class="col-md-6"> <input type="text" class="form-control" 
-            placeholder="Szűrő" ng-model="filter" /> 
+        <div class="col-md-6 col-md-offset-3"> 
+            <input type="text" 
+                class="form-control" 
+                placeholder="Szűrő" 
+                ng-model="filter" /> 
         </div>
     </div>
 </div>
@@ -16,7 +19,7 @@
     <thead>
         <tr>
 
-            <th class="centered-col">
+            <th class="">
                 <a href="" ng-click="predicate = 'listIn+1'; reverse=!reverse">
                     No. #
                     <span ng-show="predicate == 'listIn+1'">
@@ -103,7 +106,7 @@
         <tr ng-repeat="rec in data | filter:filter | orderBy:predicate:reverse"
             ng-init="listIn = $index">
 
-            <td> {{ listIn +1 }} </td>
+            <td> <big> {{ $index +1 }} </big> </td>
                 
             <td> {{rec.bh_name}} </td>
 
@@ -121,7 +124,7 @@
 
             <td class="centered-col" ng-show="loggedInUser.role=='admin'">
                 <button class="btn btn-danger" 
-                    ng-click="" 
+                    ng-click="delRec(rec._id)" 
                     type="button"> 
 
                     <i class="fa fa-times"></i>
@@ -131,7 +134,7 @@
             <td class="centered-col" ng-show="loggedInUser.role=='admin'">  
                 <a 
                     class="btn btn-primary" 
-                    href="" 
+                    href="#edit/id/{{ rec._id }}" 
                     type="button" >
 
                    <i class="fa fa-pencil-square-o"></i>

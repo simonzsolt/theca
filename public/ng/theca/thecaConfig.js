@@ -57,6 +57,16 @@ angular
                     controller: 'listCtrl',
                 })
                 
+                .when('/edit/id/:id', {
+                    templateUrl: 'ng/theca/components/edit/editView.html',
+                    controller: 'editCtrl',
+                })
+                  
+                .when('/view/id/:id', {
+                    templateUrl: 'ng/theca/components/view/view.html',
+                    controller: 'viewCtrl',
+                })
+                
                 .when('/upload', {
                     templateUrl: 'ng/theca/components/upload/uploadView.html',
                     controller: 'uploadCtrl',

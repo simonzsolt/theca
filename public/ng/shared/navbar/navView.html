@@ -68,8 +68,10 @@
                                 href="#profile/id/{{loggedInUser._id}}">
                                 <i class="fa fa-user"></i>
                                 <b>
-                                    {{ loggedInUser.nickname }} || 
-                                    {{ loggedInUser.role }} 
+                                    {{ loggedInUser.nickname }}
+                                    <small>
+                                        ({{ loggedInUser.role }}) 
+                                    </small>
                                 </b>
                             </a>
                            <!-- <h4>isLoggedIn : {{ isLoggedIn }}</h4> -->

@@ -77,4 +77,34 @@ angular
                     ],
                     firstDay: 1
                 };
+
+                // record publishes array
+                $scope.rec.rec_pub = [{ item: '' }];
+
+                // adding to aray
+                $scope.addPub = function addPub(){
+                    $scope.rec.rec_pub.push({ item: '' });
+                };
+
+                // removing from array
+                $scope.removePub = function removePub(){
+                    var lastItem = $scope.rec.rec_pub.length -1;
+                    $scope.rec.rec_pub.splice(lastItem, 1); 
+                };
+
+                // bibliography array
+                $scope.rec.bibl = [{ item: '' }];
+
+                 // adding to aray
+                $scope.addBibl = function addBibl(){
+                    $scope.rec.bibl.push({ item: '' });
+                };
+
+                // removing from array
+                $scope.removeBibl = function removeBibl(){
+                    var lastItem = $scope.rec.bibl.length -1;
+                    $scope.rec.bibl.splice(lastItem, 1); 
+                };
+
+
             }]);

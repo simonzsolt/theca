@@ -69,7 +69,8 @@
         <div class="col-md-6" id="source_type" >
           
             <input class="form-control"
-                type="text"     
+                type="text"
+                placeholder="Forrástípus"
                 ng-model="rec.source_type">
             </input>
         </div>
@@ -255,19 +256,42 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div>
 
-        <label class="control-label col-md-3" for="rec_pub">
-            Jegyzék kiadása(i) (részleges/teljes):
-        </label> 
+        <h4>
+            Jegyzék kiadása(i) (részleges/teljes)
+        </h4>
 
-        <div class="col-md-6" id="rec_pub" >
-            <input class="form-control" 
-                type="text"  
-                placeholder="Jegyzék kiadása(i) (részleges/teljes)" 
-                ng-model="rec.rec_pub" > 
-            </input> 
+        <div ng-repeat="rec_pub in rec.rec_pub" ng-init="pubIn = $index">
+            <div class="form-group">
+                <label class="control-label col-md-3" for="rec_pub">
+
+                     <span>
+                        <a ng-click="addPub()" 
+                            ng-show="$last" href="">
+                            <i class="fa fa-plus"></i>
+                        </a>
+
+                        <a ng-click="removePub()" 
+                            ng-show="$last && $index > 0" href="">
+                            <i class="fa fa-minus"></i>
+                        </a>
+                    </span>
+
+                    Kiadás # {{ pubIn +1 }} : 
+                </label> 
+
+                <div class="col-md-6" id="rec_pub" >
+                    <input class="form-control" 
+                        type="text"  
+                        placeholder="Jegyzék kiadása(i) (részleges/teljes)" 
+                        ng-model="rec_pub.item" > 
+                    </input> 
+                </div>
+            </div>
         </div>
+
+
     </div>
 
     <div class="form-group">
@@ -358,7 +382,11 @@
 
         <div class="col-md-6" id="rec_lang" >
 
-            <!-- autocomplete here -->
+            <input class="form-control" 
+                type="text"  
+                placeholder="Jegyzék nyelve:" 
+                ng-model="rec.rec_lang" > 
+            </input> 
 
         </div>
     </div>
@@ -394,19 +422,42 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div>
 
-        <label class="control-label col-md-3" for="bibl">
-            Bibliográfia:
-        </label> 
+        <h4>Bibliográfia</h4>
+      
+        <div ng-repeat="bibl in rec.bibl">
 
-        <div class="col-md-6" id="bibl" >
-            <input class="form-control" 
-                type="text"  
-                placeholder="Bibliográfia" 
-                ng-model="rec.bibl" > 
-            </input> 
+            <div class="form-group">
+                <label class="control-label col-md-3" for="bibl">
+
+                    <span>
+                        <a ng-click="addBibl()" 
+                            ng-show="$last" href="">
+                            <i class="fa fa-plus"></i>
+                        </a>
+
+                        <a ng-click="removeBibl()" 
+                            ng-show="$last && $index > 0" href="">
+                            <i class="fa fa-minus"></i>
+                        </a>
+                    </span>
+
+
+                    #{{ $index +1 }}:
+                </label> 
+
+                <div class="col-md-6" id="bibl" >
+                    <input class="form-control" 
+                        type="text"  
+                        placeholder="Bibliográfia" 
+                        ng-model="bibl.item" > 
+                    </input> 
+                </div>
+            </div>
+
         </div>
+
     </div>
 
     <div class="form-group">
@@ -457,83 +508,4 @@
         </div>
     </div>
 
-    <div class="">
-        <div class="text-center">
-            <button class="btn btn-success formBtn" type="submit"> 
-                <i class="fa fa-upload"></i>
-                Feltöltés
-            </button> 
-        </div>
-    </div>
-
-
-    <pre> {{ rec | json }} </pre>
-
 </div>
-
-<!-- 
-Elnevezés a BH alapján
-Származási hely
-A dokumentum dátuma (-tól)
-A dokumentum dátuma (-ig)
-Forrástípus
-Intézményi/magán
-Tulajdonos neve
-Tulajdonos névváltozatai
-Tulajdonos származása
-Tulajdonoshoz köthető dátum
-Tulajdonoshoz köthető hely
-Tulajdonos foglalkozása
-Tulajdonos nemzetisége
-Jegyzék leírója
-Jegyzék egykori lelőhelye(i)
-Jegyzék mai lelőhelye, jelzete
-Jegyzék régebbi jelzete
-Jegyzék kiadása(i) (részleges/teljes)
-A könyvek száma (-tól)
-A könyvek száma (-ig)
-A könyvcímek száma (-tól)
-A könyvcímek száma (-ig)
-Számozása a BH-ban
-Jegyzék nyelve
-Adományozott/öröklő
-Hiányzóként megjelölt kötetek száma
-Bibliográfia
-Megjegyzés
-A könyvjegyzék szövege
-A forrásfeldolgozás szintje
-
-
-
-bh_name
-origin
-doc_date_from
-doc_date_to
-source_type
-ownership
-poss_name
-poss_name_var
-poss_origin
-poss_date
-poss_place
-poss_occ
-poss_nat
-rec_name
-rec_prev_place
-rec_curr_place
-rec_prev_score
-rec_pub
-book_num_from
-book_num_to
-book_title_num_from
-book_title_num_to
-bh_num
-rec_lang
-inherit
-vol_missing_num
-bibl
-note
-text
-prog
-
- -->

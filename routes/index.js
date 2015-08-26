@@ -33,39 +33,49 @@ router.route('/data')
     		var rec = new Theca();
 
     		rec.bh_name = req.body.bh_name;
-            rec.origin 	= req.body.origin;
-            rec.doc_date_from 	= req.body.doc_date_from;
-            rec.doc_date_to 	= req.body.doc_date_to;
-            rec.source_type 	= req.body.source_type;
-            rec.ownership = req.body.ownership;
-            rec.poss_name = req.body.poss_name;
-            rec.poss_name_var 	= req.body.poss_name_var;
-            rec.poss_origin 	= req.body.poss_origin;
-            rec.poss_date 	= req.body.poss_date;
-            rec.poss_place 	= req.body.poss_place;
-            rec.poss_occ = req.body.poss_occ;
-            rec.poss_nat = req.body.poss_nat;
-            rec.rec_name = req.body.rec_name;
-            rec.rec_prev_place = req.body.rec_prev_place;
-            rec.rec_curr_place = req.body.rec_curr_place;
-            rec.rec_prev_score = req.body.rec_prev_score;
-            rec.rec_pub = req.body.rec_pub;
-            rec.book_num_from 	= req.body.book_num_from;
-            rec.book_num_to 	= req.body.book_num_to;
-            rec.book_title_num_from = req.body.book_title_num_from;
-            rec.book_title_num_to 	= req.body.book_title_num_to;
-            rec.bh_num 	 = req.body.bh_num;
-            rec.rec_lang = req.body.rec_lang;
-            rec.inherit  = req.body.inherit;
-            rec.vol_missing_num = req.body.vol_missing_num;
-            rec.bibl = req.body.bibl;
-            rec.note = req.body.note;
-            rec.text = req.body.text;
-            rec.prog = req.body.prog;
-            created_at =  Date.now(); // létrehozva
-            created_by = req.body.created_by;            
-            last_mod   = req.body.last_mod;           
-            mod_by     = req.body.mod_by;
+                rec.origin  = req.body.origin;
+
+                rec.doc_date_from = req.body.doc_date_from;
+                rec.doc_date_to   = req.body.doc_date_to;
+
+                rec.source_type = req.body.source_type;
+
+                rec.ownership = req.body.ownership;
+
+                rec.poss_name      = req.body.poss_name;
+                rec.poss_name_var  = req.body.poss_name_var;
+                rec.poss_origin    = req.body.poss_origin;
+                rec.poss_date      = req.body.poss_date;
+                rec.poss_place     = req.body.poss_place;
+                rec.poss_occ       = req.body.poss_occ;
+                rec.poss_nat       = req.body.poss_nat;
+
+                rec.rec_name       = req.body.rec_name;
+                rec.rec_prev_place = req.body.rec_prev_place;
+                rec.rec_curr_place = req.body.rec_curr_place;
+                rec.rec_prev_score = req.body.rec_prev_score;
+                rec.rec_pub        = req.body.rec_pub;
+
+                rec.book_num_from          = req.body.book_num_from;
+                rec.book_num_to            = req.body.book_num_to;
+                rec.book_title_num_from    = req.body.book_title_num_from;
+                rec.book_title_num_to      = req.body.book_title_num_to;
+
+                rec.bh_num   = req.body.bh_num;
+                rec.rec_lang = req.body.rec_lang;
+                rec.inherit  = req.body.inherit;
+
+                rec.vol_missing_num = req.body.vol_missing_num;
+
+                rec.bibl = req.body.bibl;
+                rec.note = req.body.note;
+                rec.text = req.body.text;
+                rec.prog = req.body.prog;
+                
+                created_at = req.body.created_at; // létrehozva
+                created_by = req.body.created_by;            
+                last_mod   = Date.now();           
+                mod_by     = req.body.mod_by;
 
     		rec.save(function(err){
     			if(err)
@@ -125,34 +135,44 @@ router.route('/data/:id')
 
     			rec.bh_name = req.body.bh_name;
     	        rec.origin 	= req.body.origin;
-    	        rec.doc_date_from 	= req.body.doc_date_from;
-    	        rec.doc_date_to 	= req.body.doc_date_to;
-    	        rec.source_type 	= req.body.source_type;
+
+    	        rec.doc_date_from = req.body.doc_date_from;
+    	        rec.doc_date_to   = req.body.doc_date_to;
+
+    	        rec.source_type = req.body.source_type;
+
     	        rec.ownership = req.body.ownership;
-    	        rec.poss_name = req.body.poss_name;
-    	        rec.poss_name_var 	= req.body.poss_name_var;
-    	        rec.poss_origin 	= req.body.poss_origin;
-    	        rec.poss_date 	= req.body.poss_date;
-    	        rec.poss_place 	= req.body.poss_place;
-    	        rec.poss_occ = req.body.poss_occ;
-    	        rec.poss_nat = req.body.poss_nat;
-    	        rec.rec_name = req.body.rec_name;
+
+    	        rec.poss_name      = req.body.poss_name;
+    	        rec.poss_name_var  = req.body.poss_name_var;
+    	        rec.poss_origin    = req.body.poss_origin;
+    	        rec.poss_date      = req.body.poss_date;
+    	        rec.poss_place 	   = req.body.poss_place;
+    	        rec.poss_occ       = req.body.poss_occ;
+    	        rec.poss_nat       = req.body.poss_nat;
+
+    	        rec.rec_name       = req.body.rec_name;
     	        rec.rec_prev_place = req.body.rec_prev_place;
     	        rec.rec_curr_place = req.body.rec_curr_place;
     	        rec.rec_prev_score = req.body.rec_prev_score;
-    	        rec.rec_pub = req.body.rec_pub;
-    	        rec.book_num_from 	= req.body.book_num_from;
-    	        rec.book_num_to 	= req.body.book_num_to;
-    	        rec.book_title_num_from = req.body.book_title_num_from;
-    	        rec.book_title_num_to 	= req.body.book_title_num_to;
+    	        rec.rec_pub        = req.body.rec_pub;
+
+    	        rec.book_num_from 	       = req.body.book_num_from;
+    	        rec.book_num_to            = req.body.book_num_to;
+    	        rec.book_title_num_from    = req.body.book_title_num_from;
+    	        rec.book_title_num_to      = req.body.book_title_num_to;
+
     	        rec.bh_num 	 = req.body.bh_num;
     	        rec.rec_lang = req.body.rec_lang;
     	        rec.inherit  = req.body.inherit;
+
     	        rec.vol_missing_num = req.body.vol_missing_num;
+
     	        rec.bibl = req.body.bibl;
     	        rec.note = req.body.note;
     	        rec.text = req.body.text;
     	        rec.prog = req.body.prog;
+                
                 created_at = req.body.created_at; // létrehozva
                 created_by = req.body.created_by;            
                 last_mod   = Date.now();           
