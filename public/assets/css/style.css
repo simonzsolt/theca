@@ -73,6 +73,11 @@ body{
     padding-right: 50px; 
 }
 
+.navbar{
+    background-color: #101010;
+    color: #949494;
+}
+
 .formPart{
     text-indent: 50px;
 }
