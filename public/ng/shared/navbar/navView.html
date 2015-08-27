@@ -9,14 +9,15 @@
         <div>
             <ul class="nav navbar-nav">
 
-                <li ng-hide="path === '/list' || !loggedInUser.username">
+                <li ng-hide="path === '/list'">
                     <a class=""  href="#list">
                         <i class="fa fa-list"></i>        
                             Lista
                     </a>
                 </li>
 
-                <li ng-show="path === viewPathId && loggedInUser.role !== 'user'" >
+                <li ng-show="path === viewPathId && loggedInUser.role !== 'user'" 
+                    ng-hide="!loggedInUser.username || path !=== viewPathId">
                     <a class=""  href="#edit/id/{{rec._id}}">
                         <i class="fa fa-pencil-square-o"></i>
                         Szerkesztő
