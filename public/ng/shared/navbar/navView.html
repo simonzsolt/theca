@@ -16,8 +16,7 @@
                     </a>
                 </li>
 
-                <li ng-show="path === viewPathId && loggedInUser.role !== 'user'" 
-                    ng-hide="!loggedInUser.username || path !=== viewPathId">
+                <li ng-hide="!loggedInUser.username || path !== viewPathId">
                     <a class=""  href="#edit/id/{{rec._id}}">
                         <i class="fa fa-pencil-square-o"></i>
                         Szerkesztő
