@@ -32,5 +32,4 @@ angular
         }
 
         $rootScope.loggedInUser = userLoggedInFactory.get();
-
 });
