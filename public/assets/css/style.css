@@ -82,6 +82,22 @@ body{
     text-indent: 50px;
 }
 
+.n-col{
+    width: 50px;
+}
+
+.wide-col{
+    width: 300px;
+}
+
+.med-col{
+    width: 90px;
+}
+
+.lang-col{
+    width: 120px;
+}
+
 /*NG AUTOCOMPLETE*/
 /*
 .nacContainer
