@@ -16,7 +16,9 @@ var express = require('express'); // server dep
     cookieParser = require('cookie-parser'),
     flash = require('connect-flash'),
 
-    MongoStore = require('connect-mongo')(session);
+    MongoStore = require('connect-mongo')(session),
+
+    elasticsearch = require('elasticsearch');
 
 // ====================LOADING CONFIG VARS====================
 
@@ -53,8 +55,9 @@ var server = app.listen(port, ip, function () {
     console.log('Example app listening at http://%s:%s', host, port);
 }); // debug for port and ip binding
 
-var routes = require('./routes/index');
-var auth = require('./routes/auth');
+var routes  = require('./routes/index');
+var auth    = require('./routes/auth');
+var search  = require('./routes/search');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -102,6 +105,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes); 
 app.use('/', auth); 
+app.use('/', search); 
 
 // ====================EXPORTING APP====================
 
