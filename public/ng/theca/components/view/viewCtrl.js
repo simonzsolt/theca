@@ -8,9 +8,10 @@ angular
             '$routeParams',
             'thecaFactory',
             '$rootScope', 
+            '$log',
             '$location', 
 
-            function($scope, $routeParams, thecaFactory, $rootScope, $location){ 
+            function($scope, $routeParams, thecaFactory, $rootScope, $log, $location){ 
               
                 var thecaId = $routeParams.id;
 
