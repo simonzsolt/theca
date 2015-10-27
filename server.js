@@ -52,7 +52,7 @@ var server = app.listen(port, ip, function () {
     var host = server.address().address;
     var port = server.address().port;
 
-    console.log('Example app listening at http://%s:%s', host, port);
+    console.log('*APP: Example app listening at http://%s:%s', host, port);
 }); // debug for port and ip binding
 
 var routes  = require('./routes/index');

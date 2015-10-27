@@ -9,7 +9,7 @@ var express = require('express');
 // start es client
 var client = new elasticsearch.Client({
     host: 'localhost:9200',
-    log: 'trace',
+    log: 'error', // error, warning, info, debug, trace
     apiVersion: '1.7'
 });
 
@@ -24,31 +24,50 @@ client.ping({
     if (error) {
         console.trace('elasticsearch cluster is down!');
     } else {
-        console.log('All is well');
+        console.log('*ES: All is well');
     }
 });
 
+router.route('/search/:query')
+    .get(function (req, res) {
+
+        client.search({
+            index: 'theca',
+            // match_all: {}
+            q: req.params.query
+        }, function (err, findings) {
+            if (err) {
+                console.log(err);
+            } else {
+                // console.log(res);
+                res.send(findings);
+            }
+        }); // client.search, cb
+
+    }) // .get
+
+/*
 Theca.find(function(err, data){
     if(err){
         console.log('err: ' + err);
     }
     else{
 
-         for (var i = data.length - 1; i >= 0; i--) {
+        for (var i = data.length - 1; i >= 0; i--) {
 
             var dataId = data[i]._id.toString();
 
             // for indexing remove 'doc' object from body
-            // client.index({
+            client.create({
 
-            client.update({
+            // client.update({
 
                 index: 'theca',
                 type: 'recs',
-                id: dataId,
+                // id: 'theca_recs',
                 body: {
-                    doc:{
-                        // "id": data[i]._id,
+                    // doc:{
+                        "id": data[i]._id,
                         "bh_name": data[i].bh_name,
                         "origin": data[i].origin,
                         "doc_date_from": data[i].doc_date_from,
@@ -83,7 +102,7 @@ Theca.find(function(err, data){
                         "created_by": data[i].created_by, 
                         "last_mod": data[i].last_mod,
                         "mod_by": data[i].mod_by}
-                    }
+                    // }
 
                 }, function (err) {
 
@@ -98,14 +117,26 @@ Theca.find(function(err, data){
                             if (err) {
                                 console.log(err);
                             } else {
-                                console.log(res);
+                                // console.log(res);
                             }
                         })
                     }
-                });
-         };       
+                }); // client.update (cb)
+        }; // for loop (indexing)       
     }
-})
+}); // Theca.find()
+*/
+
+/*client.search({
+    index: 'theca',
+    q: 'plébános'
+}, function (err, res) {
+    if (err) {
+        console.log(err);
+    } else {
+        // console.log(res);
+    }
+});*/
 
 // =================================QUERIES=========================================
 
