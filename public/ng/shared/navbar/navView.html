@@ -15,6 +15,13 @@
                             Lista
                     </a>
                 </li>
+            
+            <li ng-hide="path === '/search'">
+                    <a class=""  href="#search">
+                        <i class="fa fa-search"></i>        
+                            Kereső
+                    </a>
+                </li>
 
                 <li ng-hide="!loggedInUser.username || path !== viewPathId">
                     <a class=""  href="#edit/id/{{rec._id}}">

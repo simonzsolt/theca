@@ -1,0 +1,60 @@
+<div ng-cloack ng-include="'ng/shared/navbar/navView.html'"></div> 
+
+<div ng-cloack class="page-header col-md-10 col-md-offset-1">
+    <h1> Kereső  </h1>
+</div>
+
+<form class="form-horizontal" 
+        role="form" ng-submit="search()">
+
+	<div class="form-group ">
+	    <label class="control-label col-md-2 col-md-offset-1" for="bh_name">
+	        Szabad szöveg:
+	    </label> 
+
+	    <div class="col-md-8" id="free-text" >
+	        <input class="form-control" 
+	            type="text"  
+	            placeholder="Szabad szöveges keresés" 
+	            ng-model="freeSearch" > 
+	        </input> 
+	    </div>
+	</div>
+
+	<div class="text-center">
+        <button class="btn btn-success formBtn" type="submit"> 
+            <i class="fa fa-search"></i>
+            Keresés
+        </button> 
+    </div>
+
+</form>
+
+<div class="col-md-10 col-md-offset-1">
+	
+	<h3> Eltelt idő: {{ results.took }} ms</h3>
+	<h3> Találatok: {{ results.hits.total }} </h3>
+
+	<ol>
+		<li ng-repeat=" result in results.hits.hits ">
+			<div>
+				<p> ID: <a href="#view/id/{{ result._source.id }}"> {{ result._source.id }} </a> </p>
+				<p> BH: {{ result._source.bh_name }} </p>
+				<!-- <p> Egyezés: {{ result.highlight }} </p> -->
+				<ul>
+					<li ng-repeat=" match in highArr track by $index "  
+						ng-bind-html = "match">
+					</li>
+				</ul>
+			</div>
+		</li>
+	</ol>
+
+</div>
+
+<div class="col-md-10 col-md-offset-1">
+	<pre>
+		{{ results | json }}
+	</pre>
+</div>
+

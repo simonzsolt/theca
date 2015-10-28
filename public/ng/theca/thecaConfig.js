@@ -56,6 +56,11 @@ angular
                     templateUrl: 'ng/theca/components/list/listView.html',
                     controller: 'listCtrl',
                 })
+
+                .when('/search', {
+                    templateUrl: 'ng/theca/components/search/searchView.html',
+                    controller: 'searchCtrl',
+                })
                 
                 .when('/edit/id/:id', {
                     templateUrl: 'ng/theca/components/edit/editView.html',

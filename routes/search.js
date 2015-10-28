@@ -2,7 +2,9 @@ var express = require('express');
     router = express.Router(),
     mongoose = require('mongoose'),
     Theca = mongoose.model('Theca', 'recs'),
-    elasticsearch = require('elasticsearch');
+    elasticsearch = require('elasticsearch'),
+    ESQ = require('esq'),
+    esq = new ESQ();
 
 // =========================STARTUP & CONFIG=========================================
 
@@ -28,13 +30,27 @@ client.ping({
     }
 });
 
-router.route('/search/:query')
+router.route('/search/:q')
     .get(function (req, res) {
+
+        // esq.query('bool', { q: req.params.query  });
+        // var query = esq.getQuery();
+        // console.log(query);
 
         client.search({
             index: 'theca',
-            // match_all: {}
-            q: req.params.query
+            body: {
+                query: {
+                    match: {
+                        _all: req.params.q
+                    }
+                },
+                highlight: {
+                pre_tags: [ '<span class="highlight">' ],
+                post_tags: [ "</span>" ],
+                fields : { "*" : {} }
+            }
+            },
         }, function (err, findings) {
             if (err) {
                 console.log(err);

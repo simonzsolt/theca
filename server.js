@@ -18,7 +18,8 @@ var express = require('express'); // server dep
 
     MongoStore = require('connect-mongo')(session),
 
-    elasticsearch = require('elasticsearch');
+    elasticsearch = require('elasticsearch')
+    var ESQ = require('esq');
 
 // ====================LOADING CONFIG VARS====================
 
