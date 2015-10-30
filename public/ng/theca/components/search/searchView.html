@@ -12,7 +12,7 @@
 	        Szabad szöveg:
 	    </label> 
 
-	    <div class="col-md-8" id="free-text" >
+	    <div class="col-md-7" id="free-text" >
 	        <input class="form-control" 
 	            type="text"  
 	            placeholder="Szabad szöveges keresés" 
@@ -30,40 +30,36 @@
 
 </form>
 
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-10 col-md-offset-1" ng-show="results">
 	
 	<h3> Eltelt idő: {{ results.took }} ms</h3>
 	<h3> Találatok: {{ results.hits.total }} </h3>
 
 	<ol>
-		<li ng-repeat=" result in results.hits.hits ">
-			<div>
-				<p> BH: 
-					<a href="#view/id/{{ result._source.id }}"> 
-						{{ result._source.bh_name }} 
-					</a> 
-				</p>
+		<li class="resList" ng-repeat=" result in results.hits.hits ">
+			<div class="list-group">
+			  	<a  class="list-group-item"
+			  		href="#view/id/{{ result._source.id }}"
+			  		target="_blank">
 
-				<ul ng-repeat=" hl in result.highlight track by $index">
-					<li ng-repeat=" hls in hl track by $index ">
-						<span ng-bind-html = "hls" ></span>
-					</li>
-				</ul>
-
-				<!-- <p> Egyezés: {{ result.highlight }} </p> -->
-
-				<!-- <ul>
-					<li ng-repeat=" match in highArr track by $index "  
-						ng-bind-html = "match">
-					</li>
-				</ul> -->
+			    	<h4 class="list-group-item-heading">
+			    		BH: {{ result._source.bh_name }}
+			    	</h4>
+			    	<div class="list-group-item-text">
+			    		<ul ng-repeat=" hl in result.highlight track by $index">
+							<li ng-repeat=" hls in hl track by $index ">
+								<span ng-bind-html = "hls" ></span>
+							</li>
+						</ul>
+			    	</div>					    	
+			  	</a>
 			</div>
 		</li>
 	</ol>
 
 </div>
 
-<div class="col-md-10 col-md-offset-1">
+<div class="col-md-10 col-md-offset-1" ng-show="results">
 	<pre>
 		{{ results | json }}
 	</pre>

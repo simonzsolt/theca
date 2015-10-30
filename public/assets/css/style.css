@@ -103,6 +103,10 @@ body{
     font-weight: bold;
 }
 
+.list-group-item-text li{
+    list-style-type: disc;
+}
+
 /*NG AUTOCOMPLETE*/
 /*
 .nacContainer
