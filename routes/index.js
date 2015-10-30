@@ -223,13 +223,13 @@ router.route('/data/:id')
                         if (err) {
                             console.log(err);
                         } else {
-                           console.log(findings.hits.hits[0]);
+                           console.log(findings.hits.hits[0]._id);
                         }
 
                         client.delete({
                             index: 'theca',
                             type: 'recs',
-                            id: findings.hits.hits[0]
+                            id: findings.hits.hits[0]._id
                         }, function (error, response) {
                             if (err) {
                             console.log(err);
@@ -257,6 +257,8 @@ router.route('/data/:id')
             Theca.findOne({ _id: req.params.id }, function(err, rec){
                 if(err)
                     res.send(err);
+
+                var docId = req.params.id;
 
                 rec.bh_name = req.body.bh_name;
                 rec.origin  = req.body.origin;
@@ -303,11 +305,88 @@ router.route('/data/:id')
                 last_mod   = Date.now();           
                 mod_by     = req.body.mod_by;
 
-                rec.save(function(err){
+                rec.save(function(err, doc){
                     console.log('updating data...');
                     if(err)
                         res.send(err);
                     res.json({ msg : 'update succesfull'});
+
+
+                    client.search({
+                        index: 'theca',
+                        body: {
+                            query: {
+                                match: {
+                                    _all: docId
+                                }
+                            },
+                        },
+                    }, function (err, findings) {
+                        if (err) {
+                            console.log(err);
+                        } else {
+                           console.log(findings.hits.hits[0]._id);
+                        }
+
+                        client.update({
+                            index: 'theca',
+                            type: 'recs',
+                            id: findings.hits.hits[0]._id,
+                            body: {
+                                // put the partial document under the `doc` key
+                                doc: {
+                                    bh_name : req.body.bh_name,
+                                    origin  : req.body.origin,
+
+                                    doc_date_from : req.body.doc_date_from,
+                                    doc_date_to   : req.body.doc_date_to,
+
+                                    source_type : req.body.source_type,
+
+                                    ownership : req.body.ownership,
+
+                                    poss_name      : req.body.poss_name,
+                                    poss_name_var  : req.body.poss_name_var,
+                                    poss_origin    : req.body.poss_origin,
+                                    poss_date      : req.body.poss_date,
+                                    poss_place     : req.body.poss_place,
+                                    poss_occ       : req.body.poss_occ,
+                                    poss_nat       : req.body.poss_nat,
+
+                                    rec_name       : req.body.rec_name,
+                                    rec_prev_place : req.body.rec_prev_place,
+                                    rec_curr_place : req.body.rec_curr_place,
+                                    rec_prev_score : req.body.rec_prev_score,
+                                    rec_pub        : req.body.rec_pub,
+
+                                    book_num_from          : req.body.book_num_from,
+                                    book_num_to            : req.body.book_num_to,
+                                    book_title_num_from    : req.body.book_title_num_from,
+                                    book_title_num_to      : req.body.book_title_num_to,
+
+                                    bh_num   : req.body.bh_num,
+                                    rec_lang : req.body.rec_lang,
+                                    inherit  : req.body.inherit,
+
+                                    vol_missing_num : req.body.vol_missing_num,
+
+                                    bibl : req.body.bibl,
+                                    note : req.body.note,
+                                    text : req.body.text,
+                                    prog : req.body.prog
+                                }
+                            }
+                        }, function (error, response) {
+                            if (error){
+                                console.log(error);
+                            } else {
+                                console.log('index updated!');
+                            }
+                            })
+
+                        
+
+                    }); // client.search, cb
                 })
             })
         }
