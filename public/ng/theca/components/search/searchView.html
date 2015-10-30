@@ -38,14 +38,25 @@
 	<ol>
 		<li ng-repeat=" result in results.hits.hits ">
 			<div>
-				<p> ID: <a href="#view/id/{{ result._source.id }}"> {{ result._source.id }} </a> </p>
-				<p> BH: {{ result._source.bh_name }} </p>
+				<p> BH: 
+					<a href="#view/id/{{ result._source.id }}"> 
+						{{ result._source.bh_name }} 
+					</a> 
+				</p>
+
+				<ul ng-repeat=" hl in result.highlight track by $index">
+					<li ng-repeat=" hls in hl track by $index ">
+						<span ng-bind-html = "hls" ></span>
+					</li>
+				</ul>
+
 				<!-- <p> Egyezés: {{ result.highlight }} </p> -->
-				<ul>
+
+				<!-- <ul>
 					<li ng-repeat=" match in highArr track by $index "  
 						ng-bind-html = "match">
 					</li>
-				</ul>
+				</ul> -->
 			</div>
 		</li>
 	</ol>
