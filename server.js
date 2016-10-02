@@ -29,30 +29,30 @@ var models = require('./public/models/thecaModel');
 // -------------------PORT AND IP-------------------
 
 // for local
-var port = (process.env.OPENSHIFT_NODEJS_PORT   || 8080);
+var port = (process.env.OPENSHIFT_NODEJS_PORT   || 3333);
 var ip   = (process.env.OPENSHIFT_NODEJS_IP     || '127.0.0.1');
 
 // -------------------DB CONNECTION-------------------
 
 //LOCAL MONGODB
-/*
+
 mongoose.connect("mongodb://localhost/theca", function(err) {
     if (err) {
         console.log('DB connection error:' + err);
     }
     else {return;}
 });
-*/
+
 
 //OPENSHIFT MONGODB
-var connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_MONGODB_DB_NAME;
+// var connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_MONGODB_DB_NAME;
 
-mongoose.connect(connection_string, function(err) {
-    if (err) {
-        console.log('DB connection error:' + err);
-    }
-    else {return;}
-});
+// mongoose.connect(connection_string, function(err) {
+//     if (err) {
+//         console.log('DB connection error:' + err);
+//     }
+//     else {return;}
+// });
 
 // -------------------SERVER LISTENING-------------------
 
@@ -83,14 +83,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(session({
-    secret: process.env.OPENSHIFT_MONGODB_DB_SECRET,
+    // secret: process.env.OPENSHIFT_MONGODB_DB_SECRET,
+    secret: 'mylittlesecret',
     resave: true,
     saveUninitialized: false,
     store: new MongoStore({
         // for session
         mongooseConnection: mongoose.connection,
-        // url: 'mongodb://localhost/theca'
-        url: connection_string
+        url: 'mongodb://localhost/theca'
+        // url: connection_string
     })
 }));
 
