@@ -1,9 +1,12 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
+var connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_MONGODB_DB_NAME;
+
 // session storage connection
 var connection = mongoose.
-    createConnection("mongodb://localhost/theca", function(err) {
+    // createConnection("mongodb://localhost/theca", function(err) {
+    createConnection(connection_string, function(err) {
         if (err) {
             console.log('DB connection error:' + err);
         }
@@ -35,7 +38,7 @@ var Theca = new mongoose.Schema({
     book_num_to: Number,
     book_title_num_from: Number,
     book_title_num_to: Number,
-    bh_num: Number,
+    bh_num: String,
     rec_lang: String,
     inherit: String,
     vol_missing_num: Number,

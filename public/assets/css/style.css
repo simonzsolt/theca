@@ -39,9 +39,12 @@ body{
     padding: 25px 25px 0px 25px;
 }
 
-.text{
+.text-container{
     padding: 25px;
-    text-indent: 20px;
+}
+
+.text{
+    text-indent: 00px;
 }
 
 #footer{
@@ -80,6 +83,22 @@ body{
 
 .formPart{
     text-indent: 50px;
+}
+
+.n-col{
+    width: 50px;
+}
+
+.wide-col{
+    width: 300px;
+}
+
+.med-col{
+    width: 90px;
+}
+
+.lang-col{
+    width: 120px;
 }
 
 /*NG AUTOCOMPLETE*/

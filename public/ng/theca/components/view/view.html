@@ -1,7 +1,7 @@
 <div ng-cloack ng-include="'ng/shared/navbar/navView.html'"></div> 
 
 <div ng-cloack class="page-header col-md-10 col-md-offset-1">
-    <h1> {{ rec.bh_name }} 
+    <h1> {{ rec.bh_name }} <br>
         <small> 
             ({{ rec.doc_date_from | date:"y-MM-dd" }} &mdash; 
             {{ rec.doc_date_to | date:"y-MM-dd" }}) 
@@ -155,7 +155,11 @@
         <li class="list-group-item">
             <h4 class="text-heading" 
                 class="list-group-item-heading"> A könyvjegyzék szövege </h4>
-            <p class="text" class="list-group-item-text"> {{ rec.text }} </p>
+                <div class="text-container">
+                    <p ng-repeat="par in textArray track by $index" 
+                        class="text ng-binding" > {{ par }} 
+                    </p> 
+                </div>
         </li>
     </ul>
 </div>
@@ -167,11 +171,14 @@
         <li class="list-group-item">
             <h4 class="text-heading" 
                 class="list-group-item-heading"> Megjegyzés </h4>
-            <p class="text" class="list-group-item-text"> {{ rec.note }} </p>
+            <div class="text-container">
+                <p ng-repeat="note in noteArray track by $index" 
+                    class="text ng-binding" > {{ note }} 
+                </p> 
+            </div>
         </li>
     </ul>
 </div>
-
 
 <!-- 
    
@@ -179,8 +186,8 @@
     <pre> {{ rec | json }} </pre>
 </div>
 
-
  -->
+
 <!-- 
 
    <p class="list-group-item-text" 

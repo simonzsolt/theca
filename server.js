@@ -29,14 +29,25 @@ var models = require('./public/models/thecaModel');
 // -------------------PORT AND IP-------------------
 
 // for local
-var port = (process.env.OPENSHIFT_NODEJS_PORT   || 3333);
+var port = (process.env.OPENSHIFT_NODEJS_PORT   || 8080);
 var ip   = (process.env.OPENSHIFT_NODEJS_IP     || '127.0.0.1');
 
 // -------------------DB CONNECTION-------------------
 
 //LOCAL MONGODB
-
+/*
 mongoose.connect("mongodb://localhost/theca", function(err) {
+    if (err) {
+        console.log('DB connection error:' + err);
+    }
+    else {return;}
+});
+*/
+
+//OPENSHIFT MONGODB
+var connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_MONGODB_DB_NAME;
+
+mongoose.connect(connection_string, function(err) {
     if (err) {
         console.log('DB connection error:' + err);
     }
@@ -55,6 +66,7 @@ var server = app.listen(port, ip, function () {
 
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
+var search = require('./routes/search');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -71,14 +83,14 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 app.use(session({
-    secret: 'itsbettertoburnoutthantofadeaway',
+    secret: process.env.OPENSHIFT_MONGODB_DB_SECRET,
     resave: true,
     saveUninitialized: false,
     store: new MongoStore({
-
         // for session
         mongooseConnection: mongoose.connection,
-        url: 'mongodb://localhost/theca'
+        // url: 'mongodb://localhost/theca'
+        url: connection_string
     })
 }));
 
@@ -102,6 +114,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes); 
 app.use('/', auth); 
+app.use('/', search); 
 
 // ====================EXPORTING APP====================
 
