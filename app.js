@@ -29,8 +29,8 @@ var models = require('./public/models/thecaModel');
 // -------------------PORT AND IP-------------------
 
 // for local
-var port = (process.env.PORT   || 3333);
-var ip   = (process.env.IP     || '127.0.0.1');
+var port = (process.env.PORT || '8080');
+// var ip   = (process.env.IP     || '127.0.0.1');
 
 // -------------------DB CONNECTION-------------------
 
