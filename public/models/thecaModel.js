@@ -1,12 +1,10 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var connection_string = '';
-
 // session storage connection
 var connection = mongoose.
     // createConnection("mongodb://localhost/theca", function(err) {
-    createConnection(connection_string, function(err) {
+    createConnection(process.env.MONGODB_URI, function(err) {
         if (err) {
             console.log('DB connection error:' + err);
         }

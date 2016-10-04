@@ -45,9 +45,8 @@ var port = (process.env.PORT || '5000');
 
 
 // HEROKU MONGODB
-var connection_string = '';
 
-mongoose.connect(connection_string, function(err) {
+mongoose.connect(process.env.MONGODB_URI, function(err) {
     if (err) {
         console.log('DB connection error:' + err);
     }
@@ -90,7 +89,7 @@ app.use(session({
     store: new MongoStore({
         // for session
         mongooseConnection: mongoose.connection,
-        // url: connection_string
+        url: process.env.MONGODB_URI;
     })
 }));
 
