@@ -1,7 +1,7 @@
 var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
-var connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_MONGODB_DB_NAME;
+var connection_string = '';
 
 // session storage connection
 var connection = mongoose.

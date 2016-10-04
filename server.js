@@ -29,7 +29,7 @@ var models = require('./public/models/thecaModel');
 // -------------------PORT AND IP-------------------
 
 // for local
-var port = (process.env.PORT || '6654');
+var port = (process.env.PORT || '5000');
 // var ip   = (process.env.IP     || '127.0.0.1');
 
 // -------------------DB CONNECTION-------------------
@@ -44,8 +44,8 @@ var port = (process.env.PORT || '6654');
 // });
 
 
-// MODULUS MONGODB
-var connection_string = process.env.OPENSHIFT_MONGODB_DB_URL + process.env.OPENSHIFT_MONGODB_DB_NAME;
+// HEROKU MONGODB
+var connection_string = '';
 
 mongoose.connect(connection_string, function(err) {
     if (err) {
@@ -56,7 +56,7 @@ mongoose.connect(connection_string, function(err) {
 
 // -------------------SERVER LISTENING-------------------
 
-var server = app.listen(port, ip, function () {
+var server = app.listen(port, function () {
 
     var host = server.address().address;
     var port = server.address().port;
@@ -90,7 +90,6 @@ app.use(session({
     store: new MongoStore({
         // for session
         mongooseConnection: mongoose.connection,
-        url: 'mongodb://localhost/theca'
         // url: connection_string
     })
 }));
