@@ -89,7 +89,7 @@ app.use(session({
     store: new MongoStore({
         // for session
         mongooseConnection: mongoose.connection,
-        url: process.env.MONGODB_URI;
+        url: process.env.MONGODB_URI
     })
 }));
 
