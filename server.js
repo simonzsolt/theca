@@ -83,7 +83,7 @@ app.use(cookieParser());
 
 app.use(session({
     // secret: process.env.OPENSHIFT_MONGODB_DB_SECRET,
-    secret: 'mylittlesecret',
+    secret: process.env.SECRET,
     resave: true,
     saveUninitialized: false,
     store: new MongoStore({
