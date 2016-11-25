@@ -109,4 +109,29 @@ router.get('/search/lang/italian', function (req, res) {
 		})
 });
 
+router.get('/search/origin/:orig', function (req, res) {
+	Theca.find( { 'origin' : req.params.orig } ).
+		exec(function(err, data){
+			if(err){
+				res.send(err);
+			}
+			else{
+				res.json(data);
+			}
+		})
+});
+
+router.get('/search/possessor/:poss', function (req, res) {
+
+	Theca.find( { "rec_name": new RegExp(req.params.poss, "i") } ).
+		exec(function(err, data){
+			if(err){
+				res.send(err);
+			}
+			else{
+				res.json(data);
+			}
+		})
+});
+
 module.exports = router;
