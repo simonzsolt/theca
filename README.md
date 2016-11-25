@@ -15,9 +15,21 @@ Result are returned in a `JSON` array.
 
 ### Search API
 
-For every other method the **base URL** is: https://theca-online.herokuapp.com/search/
+For every other method the **base URL** is: https://theca-online.herokuapp.com/search
 
-#### Language
+#### Language 
 
-Sorting by the language of the records.- latin: https://theca-online.herokuapp.com/search/latin 
-- german: https://theca-online.herokuapp.com/search/german
+Sorting by the language of the records.
+
+##### Latin
+
+`GET /latin`
+
+#### German
+
+`GET /german`
+
+
+#### Italian
+
+`GET /italian`
