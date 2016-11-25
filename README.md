@@ -25,11 +25,17 @@ Sorting by the language of the records.
 
 `GET /latin`
 
-#### German
+##### German
 
 `GET /german`
 
 
-#### Italian
+##### Italian
 
 `GET /italian`
+
+##### Origin
+
+Search by place of origin.
+
+`GET /origin/{place}`
