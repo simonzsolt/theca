@@ -12,15 +12,14 @@
     </div>
 </div>
 
-
-
 <table class="table table-striped table-responsive table-hover table-condensed"
     id="listTable">
 
     <thead>
         <tr>
 
-            <th class="n-col">&#8470;</th>
+            <!-- seems pointless now -->
+            <!-- <th class="n-col">&#8470;</th> -->
 
             <th class="wide-col">
                 <a href="" ng-click="predicate = 'bh_name'; reverse=!reverse">
@@ -80,6 +79,8 @@
                 </a>
             </th>
 
+            <th> Forrástípus </th>
+
 
             <th class="centered-col med-col" 
                 ng-show="loggedInUser.role=='admin'">Eltávolítás</th>
@@ -94,8 +95,11 @@
         
         <tr ng-repeat="rec in data | filter:filter | orderBy:predicate:reverse"
             ng-init="listIn = $index">
+            
+            <!-- seems pointless now -->
+            <!-- <td class="n-col"> <big> {{ $index +1 }} </big> </td> -->
 
-            <td class="n-col"> <big> {{ $index +1 }} </big> </td>
+
                 
             <td 
                 class="wide-col"> 
@@ -107,6 +111,8 @@
             <td class="lang-col"> {{rec.rec_lang}} </td> 
 
             <td> {{rec.rec_name}} </td>
+
+            <td class="wide-col">  {{rec.source_type}}  </td>
 
             <td class="centered-col med-col" ng-show="loggedInUser.role=='admin'">
                 <button class="btn btn-danger" 
