@@ -12,17 +12,16 @@
     </div>
 </div>
 
-
-
 <table class="table table-striped table-responsive table-hover table-condensed"
     id="listTable">
 
     <thead>
         <tr>
 
-            <th class="">&#8470;</th>
+            <!-- seems pointless now -->
+            <!-- <th class="n-col">&#8470;</th> -->
 
-            <th class="centered-col">
+            <th class="wide-col">
                 <a href="" ng-click="predicate = 'bh_name'; reverse=!reverse">
                     Elnevezés a Bh-ban
                     <span ng-show="predicate == 'bh_name'">
@@ -36,7 +35,7 @@
                 </a>
             </th>
 
-            <th class="centered-col">
+            <th class="wide-col">
                 <a href="" ng-click="predicate = 'poss_name'; reverse=!reverse">
                     Tulajdonos neve
                     <span ng-show="predicate == 'poss_name'">
@@ -51,7 +50,7 @@
             </th>
 
 
-            <th class="centered-col">
+            <th class="lang-col">
                 <a href="" ng-click="predicate = 'rec_lang'; reverse=!reverse">
                     Jegyzék nyelve
                     <span ng-show="predicate == 'rec_lang'">
@@ -66,7 +65,7 @@
             </th>
 
 
-            <th class="centered-col">
+            <th>
                 <a href="" ng-click="predicate = 'rec_name'; reverse=!reverse">
                     Jegyzék leírója
                     <span ng-show="predicate == 'rec_name'">
@@ -80,11 +79,13 @@
                 </a>
             </th>
 
+            <th> Forrástípus </th>
 
-            <th class="centered-col" 
+
+            <th class="centered-col med-col" 
                 ng-show="loggedInUser.role=='admin'">Eltávolítás</th>
 
-            <th class="centered-col" 
+            <th class="centered-col med-col" 
                 ng-show="loggedInUser.role=='admin'" >Szerkesztés</th>
 
         </tr>
@@ -94,18 +95,26 @@
         
         <tr ng-repeat="rec in data | filter:filter | orderBy:predicate:reverse"
             ng-init="listIn = $index">
-
-            <td> <big> {{ $index +1 }} </big> </td>
-                
-            <td> <a href="#view/id/{{ rec._id }}"> {{rec.bh_name}} </a> </td>
             
-            <td> {{rec.poss_name}} </td>
+            <!-- seems pointless now -->
+            <!-- <td class="n-col"> <big> {{ $index +1 }} </big> </td> -->
 
-            <td> {{rec.rec_lang}} </td> 
+
+                
+            <td 
+                class="wide-col"> 
+                <a href="#view/id/{{ rec._id }}"> {{rec.bh_name}} </a> 
+            </td>
+            
+            <td class="wide-col"> {{rec.poss_name}} </td>
+
+            <td class="lang-col"> {{rec.rec_lang}} </td> 
 
             <td> {{rec.rec_name}} </td>
 
-            <td class="centered-col" ng-show="loggedInUser.role=='admin'">
+            <td class="wide-col">  {{rec.source_type}}  </td>
+
+            <td class="centered-col med-col" ng-show="loggedInUser.role=='admin'">
                 <button class="btn btn-danger" 
                     ng-click="delRec(rec._id)" 
                     type="button"> 
@@ -114,7 +123,7 @@
                 </button>
             </td>
 
-            <td class="centered-col" ng-show="loggedInUser.role=='admin'">  
+            <td class="centered-col med-col" ng-show="loggedInUser.role=='admin'">  
                 <a 
                     class="btn btn-primary" 
                     href="#edit/id/{{ rec._id }}" 
