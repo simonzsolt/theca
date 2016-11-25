@@ -3,8 +3,8 @@ var mongoose = require('mongoose'),
 
 // session storage connection
 var connection = mongoose.
-    // createConnection("mongodb://localhost/theca", function(err) {
-    createConnection(process.env.MONGODB_URI, function(err) {
+    createConnection("mongodb://localhost/theca", function(err) {
+    // createConnection(process.env.MONGODB_URI, function(err) {
         if (err) {
             console.log('DB connection error:' + err);
         }

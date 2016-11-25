@@ -73,4 +73,40 @@ router.get('/search/q=:q/gte=:gte/lte=:lte', function (req, res) {
 
 });
 
+router.get('/search/lang/latin', function (req, res) {
+	Theca.find( { 'rec_lang' : 'latin' } ).
+		exec(function(err, data){
+			if(err){
+				res.send(err);
+			}
+			else{
+				res.json(data);
+			}
+		})
+});
+
+router.get('/search/lang/german', function (req, res) {
+	Theca.find( { 'rec_lang' : 'német' } ).
+		exec(function(err, data){
+			if(err){
+				res.send(err);
+			}
+			else{
+				res.json(data);
+			}
+		})
+});
+
+router.get('/search/lang/italian', function (req, res) {
+	Theca.find( { 'rec_lang' : 'olasz' } ).
+		exec(function(err, data){
+			if(err){
+				res.send(err);
+			}
+			else{
+				res.json(data);
+			}
+		})
+});
+
 module.exports = router;
