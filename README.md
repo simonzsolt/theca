@@ -39,3 +39,9 @@ Sorting by the language of the records.
 Search by place of origin.
 
 `GET /origin/{place}`
+
+##### Possessor
+
+Search by name attributed to the reocrds.
+
+`GET /possessor/{name}`
