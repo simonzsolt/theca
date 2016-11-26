@@ -4,5 +4,6 @@ angular.module('thecaApp',
         'ngResource',
         'ngSanitize',
         'ui.date',
+        'pascalprecht.translate'
     ]
 );

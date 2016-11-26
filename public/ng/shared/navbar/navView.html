@@ -9,6 +9,12 @@
         <div>
             <ul class="nav navbar-nav">
 
+<!-- <div ng-controller="translateCtrl" >
+    <button ng-click="changeLanguage('de')" translate="GERMAN"></button>
+    <button ng-click="changeLanguage('en')" translate="ENGLISH"></button>
+    <button ng-click="test()" >TEST</button>
+</div> -->
+
                 <li ng-hide="path === '/list'">
                     <a class=""  href="#list">
                         <i class="fa fa-list"></i>        
@@ -43,6 +49,25 @@
                         <i class="fa fa-upload"></i>
                         Feltöltés
                     </a> 
+                </li>
+
+                <li ng-controller="translateCtrl" class="dropdown">
+                    <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button"> 
+                    
+                        <i class="fa fa-language" aria-hidden="true"></i>
+                        Langauage ( {{currentLanguage}} ) <span class="caret"></span></a>
+                    
+                    <ul class="dropdown-menu">
+                        
+                        <li>
+                            <a href="" ng-click="changeLanguage('hu')" translate="Magyar"></a>
+                        </li>
+
+                        <li>
+                            <a href="" ng-click="changeLanguage('en')" translate="English"></a>
+                        </li>
+
+                    </ul>
                 </li>
 
                 <!-- <li class="btn btn-default"> {{ path }} || {{ pathId }} </li> -->

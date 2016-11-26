@@ -23,7 +23,7 @@
 
             <th class="wide-col">
                 <a href="" ng-click="predicate = 'bh_name'; reverse=!reverse">
-                    Elnevezés a Bh-ban
+                    <span ng-controller="translateCtrl"> {{ 'BH_NAME' | translate }}  </span>
                     <span ng-show="predicate == 'bh_name'">
                        <span ng-hide="reverse">
                             <i class="fa fa-chevron-up"></i>
