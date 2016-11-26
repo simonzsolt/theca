@@ -73,14 +73,12 @@
 	<ol>
 		<li ng-repeat="result in results">
 			<div class="list-group">
-			  	<a  class="list-group-item"
-			  		href="#view/id/{{ result._id }}"
-			  		target="_blank">
+			  	<a  class="list-group-item" href="#view/id/{{ result._id }}">
 
 			    	<h4 class="list-group-item-heading">
 			    		{{ result.bh_name }} <br>
 			    		<small> 
-				            ({{ result.doc_date_from | date:"y-MM-dd" }} &mdash; 
+				            ({{ result.doc_date_from | date:"y-MM-dd" }} &ndash; 
 				            {{ result.doc_date_to | date:"y-MM-dd" }}) 
 				        </small>
 			    	</h4>			    	

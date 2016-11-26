@@ -3,7 +3,7 @@
 <div ng-cloack class="page-header col-md-10 col-md-offset-1">
     <h1> {{ rec.bh_name }} <br>
         <small> 
-            ({{ rec.doc_date_from | date:"y-MM-dd" }} &mdash; 
+            ({{ rec.doc_date_from | date:"y-MM-dd" }} &ndash; 
             {{ rec.doc_date_to | date:"y-MM-dd" }}) 
         </small>
     </h1>
@@ -37,75 +37,85 @@
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading">Tulajdonos neve</h4> 
+            <h4 class="list-group-item-heading">
+                 <span ng-controller="translateCtrl"> {{ 'poss_name' | translate }} </span>
+            </h4> 
              <p class="list-group-item-text"> {{ rec.poss_name }} </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading">Tulajdonos névváltozatai</h4> 
+            <h4 class="list-group-item-heading">  
+                <span ng-controller="translateCtrl"> {{ 'poss_name_var' | translate }} </span></h4> 
             <p class="list-group-item-text"> {{ rec.poss_name_var }} </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading">Tulajdonos származása</h4> 
+            <h4 class="list-group-item-heading">  
+                <span ng-controller="translateCtrl"> {{ 'poss_origin' | translate }} </span>
+            </h4> 
              <p class="list-group-item-text"> {{ rec.poss_origin }} </p>
         </li>
 
-
-
-
-
         <li class="list-group-item">
-            <h4 class="list-group-item-heading">Tulajdonoshoz köthető dátum</h4>
+            <h4 class="list-group-item-heading">  
+                <span ng-controller="translateCtrl"> {{ 'poss_date' | translate }} </span>
+            </h4>
             <p class="list-group-item-text"> {{ rec.poss_date}} </p>
         </li>
 
-
-
         <li class="list-group-item">
-            <h4 class="list-group-item-heading">Tulajdonoshoz köthető hely</h4>
+            <h4 class="list-group-item-heading">
+                <span ng-controller="translateCtrl"> {{ 'poss_place' | translate }} </span>
+            </h4>
             <p class="list-group-item-text"> {{ rec.poss_place }} </p>
         </li>
 
-
-
-
-
-
         <li class="list-group-item">
-            <h4 class="list-group-item-heading">Tulajdonos foglalkozása</h4>
+            <h4 class="list-group-item-heading">  
+                <span ng-controller="translateCtrl"> {{ 'poss_occ' | translate }} </span>
+            </h4>
             <p class="list-group-item-text"> {{ rec.poss_occ }} </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> Tulajdonos nemzetisége </h4>
+            <h4 class="list-group-item-heading">   
+                <span ng-controller="translateCtrl"> {{ 'poss_nat' | translate }} </span> 
+            </h4>
             <p class="list-group-item-text"> {{ rec.poss_nat }} </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> Jegyzék leírója </h4>
+            <h4 class="list-group-item-heading">    
+                <span ng-controller="translateCtrl"> {{ 'rec_name' | translate }}</span>
+            </h4>
             <p class="list-group-item-text"> {{ rec.rec_name }} </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> Jegyzék egykori lelőhelye(i) </h4>
+            <h4 class="list-group-item-heading">   
+                <span ng-controller="translateCtrl"> {{ 'rec_prev_place' | translate }} </span>
+            </h4>
             <p class="list-group-item-text"> {{ rec.rec_prev_place }} </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> Jegyzék mai lelőhelye, jelzete </h4>
+            <h4 class="list-group-item-heading">   
+                <span ng-controller="translateCtrl"> {{ 'rec_curr_place' | translate }} </span></h4>
             <!-- <p class="list-group-item-text"> {{ rec.rec_curr_place }} </p> -->
             <p class="list-group-item-text" ng-bind-html="rec.rec_curr_place" />
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> Jegyzék régebbi jelzete </h4>
+            <h4 class="list-group-item-heading">   
+                <span ng-controller="translateCtrl"> {{ 'rec_prev_score' | translate }} </span>
+            </h4>
             <p class="list-group-item-text"> {{ rec.rec_prev_score }} </p>
         </li>
 
         <li class="list-group-item">
             <h4 class="list-group-item-heading"> 
-                Jegyzék kiadása(i) <small>(részleges/teljes)</small> 
+                 
+                 <span ng-controller="translateCtrl"> {{ 'rec_pub' | translate }} </span>
             </h4>
             <p class="list-group-item-text"> 
                 <ul>
@@ -118,43 +128,55 @@
 
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> A könyvek száma </h4>
+            <h4 class="list-group-item-heading">   
+                <span ng-controller="translateCtrl"> {{ 'book_num_to' | translate }} </span> </h4>
             <p class="list-group-item-text"> 
                 {{ rec.book_num_from }}&ndash;{{ rec.book_num_to }} 
             </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> A könyvcímek száma  </h4>
+            <h4 class="list-group-item-heading"> 
+                <span ng-controller="translateCtrl"> {{ 'book_title_num_to' | translate }} </span> 
+            </h4>
             <p class="list-group-item-text"> 
                 {{ rec.book_title_num_from }}&ndash;{{ rec.book_title_num_to }} 
             </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> Számozása a BH-ban </h4>
+            <h4 class="list-group-item-heading"> 
+                <span ng-controller="translateCtrl"> {{ 'bh_num' | translate }} </span>
+            </h4>
             <p class="list-group-item-text"> {{ rec.bh_num }} </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> Jegyzék nyelve </h4>
+            <h4 class="list-group-item-heading"> 
+                <span ng-controller="translateCtrl"> {{ 'rec_lang' | translate }} </span> 
+            </h4>
             <p class="list-group-item-text"> {{ rec.rec_lang }} </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> Adományozott/öröklő </h4>
+            <h4 class="list-group-item-heading"> 
+                <span ng-controller="translateCtrl"> {{ 'inherit' | translate }} </span>
+            </h4>
             <p class="list-group-item-text"> {{ rec.inherit }} </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> 
-                Hiányzóként megjelölt kötetek száma 
+            <h4 class="list-group-item-heading">  
+                <span ng-controller="translateCtrl"> {{ 'vol_missing_num' | translate }} </span>
+                 
             </h4>
             <p class="list-group-item-text"> {{ rec.vol_missing_num }} </p>
         </li>
 
           <li class="list-group-item">
-            <h4 class="list-group-item-heading"> Bibliográfia </h4>
+            <h4 class="list-group-item-heading">   
+                <span ng-controller="translateCtrl"> {{ 'bibl' | translate }} </span> 
+            </h4>
             <p class="list-group-item-text"> 
                 <ul>
                     <li ng-repeat="bibl in rec.bibl">
@@ -165,7 +187,9 @@
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> A forrásfeldolgozás szintje </h4>
+            <h4 class="list-group-item-heading">   
+                <span ng-controller="translateCtrl"> {{ 'prog' | translate }} </span> 
+            </h4>
             <p class="list-group-item-text"> {{ rec.prog }} </p>
         </li>
     </ul>
@@ -177,7 +201,9 @@
     <ul class="list-group">
         <li class="list-group-item">
             <h4 class="text-heading" 
-                class="list-group-item-heading"> A könyvjegyzék szövege </h4>
+                class="list-group-item-heading">   
+                    <span ng-controller="translateCtrl"> {{ 'par' | translate }} </span> 
+                </h4>
                 <div class="text-container">
                     <p ng-repeat="par in textArray track by $index" 
                         class="text ng-binding" > {{ par }} 
@@ -193,7 +219,9 @@
     <ul class="list-group">
         <li class="list-group-item">
             <h4 class="text-heading" 
-                class="list-group-item-heading"> Megjegyzés </h4>
+                class="list-group-item-heading">   
+                <span ng-controller="translateCtrl"> {{ 'note' | translate }} </span>
+            </h4>
             <div class="text-container">
                 <p ng-repeat="note in noteArray track by $index" 
                     class="text ng-binding" > {{ note }} 
