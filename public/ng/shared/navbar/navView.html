@@ -18,28 +18,28 @@
                 <li ng-hide="path === '/list'">
                     <a class=""  href="#list">
                         <i class="fa fa-list"></i>        
-                            Lista
+                            <span ng-controller="translateCtrl"> {{ 'list' | translate }} </span>
                     </a>
                 </li>
             
                 <li ng-hide="path === '/search'">
                     <a class=""  href="#search">
                         <i class="fa fa-search"></i>        
-                            Kereső
+                            <span ng-controller="translateCtrl"> {{ 'search' | translate }} </span>
                     </a>
                 </li>
            
                 <li ng-hide="!loggedInUser.username || path !== viewPathId">
                     <a class=""  href="#edit/id/{{rec._id}}">
                         <i class="fa fa-pencil-square-o"></i>
-                        Szerkesztő
+                            <span ng-controller="translateCtrl"> {{ 'editor' | translate }} </span>
                     </a>
                 </li>
 
                 <li ng-show="path === editPathId ">
                     <a class=""  href="#view/id/{{rec._id}}">
                         <i class="fa fa-eye"></i>
-                        Részletek
+                            <span ng-controller="translateCtrl"> {{ 'detailed' | translate }} </span>
                     </a>
                 </li>
 
@@ -47,7 +47,7 @@
                 <li ng-hide="!loggedInUser.username || path === '/upload' ">
                     <a class="" href="#upload">
                         <i class="fa fa-upload"></i>
-                        Feltöltés
+                            <span ng-controller="translateCtrl"> {{ 'upload' | translate }} </span>
                     </a> 
                 </li>
 
@@ -82,7 +82,7 @@
                         <li ng-hide="path === '/signup' || loggedInUser.username">
                             <a class=""  href="#signup">
                             <i class="fa fa-key"></i>
-                                Regisztráció
+                                <span ng-controller="translateCtrl"> {{ 'register' | translate }} </span>
                             </a>
                         </li>
 
@@ -91,7 +91,7 @@
                                 class=""  
                                 href="#login">
                                 <i class="fa fa-sign-in"></i>
-                                Bejelentkezés
+                                    <span ng-controller="translateCtrl"> {{ 'login' | translate }} </span>
                             </a>
                         </li>
 
@@ -113,7 +113,7 @@
                             <a ng-show="loggedInUser.username" class="" 
                                 href="/logout">
                                 <i class="fa fa-sign-out"></i>
-                                Kijelentkezés
+                                    <span ng-controller="translateCtrl"> {{ 'logout' | translate }} </span>
                             </a>
                         </li>
 

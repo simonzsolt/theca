@@ -1,15 +1,17 @@
 <div ng-cloack ng-include="'ng/shared/navbar/navView.html'"></div> 
 
 <div ng-cloack class="page-header col-md-10 col-md-offset-1">
-    <h1> Kereső  </h1>
+    <h1> 
+    	<span ng-controller="translateCtrl"> {{ 'search' | translate }} </span>  
+    </h1>
 </div>
 
 <form class="form-horizontal" 
         role="form" ng-submit="search()">
 
 	<div class="form-group ">
-	    <label class="control-label col-md-2 col-md-offset-1" for="free-text">
-	        Szabad szöveg:
+	    <label class="control-label col-md-2 col-md-offset-1" for="free_text">
+	        <span ng-controller="translateCtrl"> {{ 'free_text' | translate }} </span>:
 	    </label> 
 
 	    <div class="col-md-7" id="free-text" >
@@ -22,8 +24,8 @@
 	</div>
 
 	<div class="form-group ">
-	    <label class="control-label col-md-2 col-md-offset-1" for="bh_name">
-	       	Kezdő dátum:
+	    <label class="control-label col-md-2 col-md-offset-1" for="gte_date">
+			<span ng-controller="translateCtrl"> {{ 'gte_date' | translate }} </span>
 	    </label> 
 
 	    <div class="col-md-4" id="doc_date_from" >
@@ -39,7 +41,7 @@
 
 	<div class="form-group ">
 	    <label class="control-label col-md-2 col-md-offset-1" for="bh_name">
-	       	Lezáró dátum:
+	       	<span ng-controller="translateCtrl"> {{ 'lte_date' | translate }} </span>
 	    </label> 
 
 	    <div class="col-md-4" id="doc_date_from" >
@@ -56,7 +58,7 @@
 	<div class="text-center">
         <button class="btn btn-success formBtn" type="submit"> 
             <i class="fa fa-search"></i>
-            Keresés
+            <span ng-controller="translateCtrl"> {{ 'search_btn' | translate }} </span>
         </button> 
     </div>
 
@@ -65,7 +67,7 @@
 <div class="col-md-10 col-md-offset-1" ng-show="results">
 	
 	<h3> 
-		{{ results.length }} találat 
+		{{ results.length }} <span ng-controller="translateCtrl"> {{ 'hits' | translate }} </span> 
 	</h3>
 
 	<ol>

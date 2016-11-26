@@ -14,19 +14,25 @@
     <ul ng-cloack class="list-group col-md-6 col-md-offset-3">
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading"> Származási hely </h4>
+            <h4 class="list-group-item-heading"> 
+                <span ng-controller="translateCtrl"> {{ 'origin' | translate }} </span> 
+            </h4>
             <p class="list-group-item-text"> 
                {{ rec.origin }}
             </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading">Forrástípus</h4>
+            <h4 class="list-group-item-heading">
+                <span ng-controller="translateCtrl"> {{ 'source_type' | translate }} </span>
+            </h4>
             <p class="list-group-item-text"> {{ rec.source_type }} </p>
         </li>
 
         <li class="list-group-item">
-            <h4 class="list-group-item-heading">Intézményi/magán</h4>
+            <h4 class="list-group-item-heading">
+                <span ng-controller="translateCtrl"> {{ 'ownership' | translate }} </span> 
+            </h4>
              <p class="list-group-item-text"> {{ rec.ownership }} </p>
         </li>
 
@@ -45,10 +51,26 @@
              <p class="list-group-item-text"> {{ rec.poss_origin }} </p>
         </li>
 
+
+
+
+
         <li class="list-group-item">
-            <h4 class="list-group-item-heading">Tulajdonoshoz köthető név</h4>
-            <p class="list-group-item-text"> {{ rec.poss_name }} </p>
+            <h4 class="list-group-item-heading">Tulajdonoshoz köthető dátum</h4>
+            <p class="list-group-item-text"> {{ rec.poss_date}} </p>
         </li>
+
+
+
+        <li class="list-group-item">
+            <h4 class="list-group-item-heading">Tulajdonoshoz köthető hely</h4>
+            <p class="list-group-item-text"> {{ rec.poss_place }} </p>
+        </li>
+
+
+
+
+
 
         <li class="list-group-item">
             <h4 class="list-group-item-heading">Tulajdonos foglalkozása</h4>

@@ -23,7 +23,7 @@
 
             <th class="wide-col">
                 <a href="" ng-click="predicate = 'bh_name'; reverse=!reverse">
-                    <span ng-controller="translateCtrl"> {{ 'BH_NAME' | translate }}  </span>
+                    <span ng-controller="translateCtrl"> {{ 'bh_name' | translate }} </span>
                     <span ng-show="predicate == 'bh_name'">
                        <span ng-hide="reverse">
                             <i class="fa fa-chevron-up"></i>
@@ -37,7 +37,7 @@
 
             <th class="wide-col">
                 <a href="" ng-click="predicate = 'poss_name'; reverse=!reverse">
-                    Tulajdonos neve
+                    <span ng-controller="translateCtrl"> {{ 'poss_name' | translate }} </span>
                     <span ng-show="predicate == 'poss_name'">
                        <span ng-hide="reverse">
                             <i class="fa fa-chevron-up"></i>
@@ -52,7 +52,7 @@
 
             <th class="lang-col">
                 <a href="" ng-click="predicate = 'rec_lang'; reverse=!reverse">
-                    Jegyzék nyelve
+                    <span ng-controller="translateCtrl"> {{ 'rec_lang' | translate }} </span>
                     <span ng-show="predicate == 'rec_lang'">
                        <span ng-hide="reverse">
                             <i class="fa fa-chevron-up"></i>
@@ -67,7 +67,7 @@
 
             <th>
                 <a href="" ng-click="predicate = 'rec_name'; reverse=!reverse">
-                    Jegyzék leírója
+                     <span ng-controller="translateCtrl"> {{ 'rec_name' | translate }} </span>
                     <span ng-show="predicate == 'rec_name'">
                         <span ng-hide="reverse">
                             <i class="fa fa-chevron-up"></i>
@@ -79,14 +79,14 @@
                 </a>
             </th>
 
-            <th> Forrástípus </th>
+            <th>  <span ng-controller="translateCtrl"> {{ 'source_type' | translate }} </span> </th>
 
 
             <th class="centered-col med-col" 
-                ng-show="loggedInUser.role=='admin'">Eltávolítás</th>
+                ng-show="loggedInUser.role=='admin'"> <span ng-controller="translateCtrl"> {{ 'remove' | translate }} </span></th>
 
             <th class="centered-col med-col" 
-                ng-show="loggedInUser.role=='admin'" >Szerkesztés</th>
+                ng-show="loggedInUser.role=='admin'" > <span ng-controller="translateCtrl"> {{ 'edit' | translate }} </span></th>
 
         </tr>
     </thead>
@@ -135,3 +135,4 @@
         </tr>
     </tbody>
 </table>
+
