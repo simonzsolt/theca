@@ -28,13 +28,12 @@ var models = require('./public/models/thecaModel');
 
 // -------------------PORT AND IP-------------------
 
-// for local
-var port = (process.env.PORT || '5000');
-// var ip   = (process.env.IP     || '127.0.0.1');
+// for dev and prod
+var port = (process.env.PORT || '3333');
 
 // -------------------DB CONNECTION-------------------
 
-//LOCAL MONGODB
+//DEV MONGODB
 
 // mongoose.connect("mongodb://localhost/theca", function(err) {
 //     if (err) {
@@ -60,7 +59,7 @@ var server = app.listen(port, function () {
     var host = server.address().address;
     var port = server.address().port;
 
-    console.log('Example app listening at http://%s:%s', host, port);
+    console.log('Example app listening at port: ' + port);
 }); // debug for port and ip binding
 
 var routes = require('./routes/index');
@@ -81,15 +80,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(session({
-    // secret: process.env.OPENSHIFT_MONGODB_DB_SECRET,
-    secret: process.env.SECRET,
-    resave: true,
-    saveUninitialized: false,
-    store: new MongoStore({
-        // for session
-        mongooseConnection: mongoose.connection,
-        url: process.env.MONGODB_URI
+app.use(session(
+    {
+        secret: process.env.SECRET,
+        resave: true,
+        saveUninitialized: false,
+        store: new MongoStore({
+            // for session
+            mongooseConnection: mongoose.connection,
+            url: process.env.MONGODB_URI
+            // url: "mongodb://localhost/theca"
     })
 }));
 
