@@ -23,16 +23,16 @@ Sorting by the language of the records.
 
 ##### Latin
 
-`GET /latin`
+`GET /lang/latin`
 
 ##### German
 
-`GET /german`
+`GET /lang/german`
 
 
 ##### Italian
 
-`GET /italian`
+`GET /lang/italian`
 
 ##### Origin
 
