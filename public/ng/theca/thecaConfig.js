@@ -54,7 +54,12 @@ angular
 
                 .when('/list', {
                     templateUrl: 'ng/theca/components/list/listView.html',
-                    controller: 'listCtrl',
+                    controller: 'listCtrl'
+                })
+
+                .when('/search', {
+                    templateUrl: 'ng/theca/components/search/searchView.html',
+                    controller: 'searchCtrl',
                 })
                 
                 .when('/edit/id/:id', {
@@ -70,6 +75,11 @@ angular
                 .when('/upload', {
                     templateUrl: 'ng/theca/components/upload/uploadView.html',
                     controller: 'uploadCtrl',
+                })  
+
+                .when('/test', {
+                    templateUrl: 'ng/theca/components/test/testView.html',
+                    controller: 'translateCtrl',
                 });
                 
         }); // config

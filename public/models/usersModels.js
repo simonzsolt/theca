@@ -12,7 +12,7 @@ var Account = new Schema({
     created_at: {
             type:       Date, 
             default:    Date.now()
-        }, // létrehozva;
+        },
     },
 
     {collection: 'user'} // specify collection

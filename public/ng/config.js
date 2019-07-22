@@ -1,16 +1,10 @@
-angular
-    .module('thecaApp')
+angular.module('thecaApp')
 
-// =============================CONFIG=============================
+    .config(function($routeProvider, $locationProvider) {
 
-// -----------------------------ROUTES CONFIG FOR POEMS-----------------------------
-
-        .config(function($routeProvider, $locationProvider) {
-
-            $routeProvider
-                
-                .otherwise({
-                    redirectTo: '/list'
-                });
-                
-        }); // config
+        $routeProvider
+            .otherwise({
+                redirectTo: '/list'
+            });
+            
+    }); // config

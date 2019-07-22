@@ -28,15 +28,24 @@ var models = require('./public/models/thecaModel');
 
 // -------------------PORT AND IP-------------------
 
-// for local
-var port = (process.env.OPENSHIFT_NODEJS_PORT   || 3333);
-var ip   = (process.env.OPENSHIFT_NODEJS_IP     || '127.0.0.1');
+// for dev and prod
+var port = (process.env.PORT || '3333');
 
 // -------------------DB CONNECTION-------------------
 
-//LOCAL MONGODB
+//DEV MONGODB
 
-mongoose.connect("mongodb://localhost/theca", function(err) {
+// mongoose.connect("mongodb://localhost/theca", function(err) {
+//     if (err) {
+//         console.log('DB connection error:' + err);
+//     }
+//     else {return;}
+// });
+
+
+// HEROKU MONGODB
+
+mongoose.connect(process.env.MONGODB_URI, function(err) {
     if (err) {
         console.log('DB connection error:' + err);
     }
@@ -45,16 +54,17 @@ mongoose.connect("mongodb://localhost/theca", function(err) {
 
 // -------------------SERVER LISTENING-------------------
 
-var server = app.listen(port, ip, function () {
+var server = app.listen(port, function () {
 
     var host = server.address().address;
     var port = server.address().port;
 
-    console.log('Example app listening at http://%s:%s', host, port);
+    console.log('Example app listening at port: ' + port);
 }); // debug for port and ip binding
 
 var routes = require('./routes/index');
 var auth = require('./routes/auth');
+var search = require('./routes/search');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -70,15 +80,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(session({
-    secret: 'itsbettertoburnoutthantofadeaway',
-    resave: true,
-    saveUninitialized: false,
-    store: new MongoStore({
-
-        // for session
-        mongooseConnection: mongoose.connection,
-        url: 'mongodb://localhost/theca'
+app.use(session(
+    {
+        secret: process.env.SECRET,
+        resave: true,
+        saveUninitialized: false,
+        store: new MongoStore({
+            // for session
+            mongooseConnection: mongoose.connection,
+            url: process.env.MONGODB_URI
+            // url: "mongodb://localhost/theca"
     })
 }));
 
@@ -102,6 +113,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', routes); 
 app.use('/', auth); 
+app.use('/', search); 
 
 // ====================EXPORTING APP====================
 

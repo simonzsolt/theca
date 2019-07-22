@@ -3,7 +3,8 @@ var mongoose = require('mongoose'),
 
 // session storage connection
 var connection = mongoose.
-    createConnection("mongodb://localhost/theca", function(err) {
+    // createConnection("mongodb://localhost/theca", function(err) {
+    createConnection(process.env.MONGODB_URI, function(err) {
         if (err) {
             console.log('DB connection error:' + err);
         }
@@ -35,7 +36,7 @@ var Theca = new mongoose.Schema({
     book_num_to: Number,
     book_title_num_from: Number,
     book_title_num_to: Number,
-    bh_num: Number,
+    bh_num: String,
     rec_lang: String,
     inherit: String,
     vol_missing_num: Number,

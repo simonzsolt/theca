@@ -2,7 +2,7 @@
 
 ## Overview
 
-THECA is the databse of Hungarian book catalogues and records, within the Hungarian Kingdom, in the period of 1000&mdash;1526.
+THECA is the databse of Hungarian book catalogues and records, within the Hungarian Kingdom, in the period of 1000&ndash;1526.
 
 ## API
 
@@ -23,16 +23,16 @@ Sorting by the language of the records.
 
 ##### Latin
 
-`GET /latin`
+`GET /lang/latin`
 
 ##### German
 
-`GET /german`
+`GET /lang/german`
 
 
 ##### Italian
 
-`GET /italian`
+`GET /lang/italian`
 
 ##### Origin
 
