@@ -45,7 +45,7 @@ var port = (process.env.PORT || '3333');
 
 // HEROKU MONGODB
 
-mongoose.connect(process.env.MONGODB_URI, function(err) {
+mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true}, function(err) {
     if (err) {
         console.log('DB connection error:' + err);
     }
@@ -86,6 +86,10 @@ app.use(session(
         resave: true,
         saveUninitialized: false,
         store: new MongoStore({
+            mongoOptions: {
+                useNewUrlParser: true, 
+                useUnifiedTopology: true
+            },
             // for session
             mongooseConnection: mongoose.connection,
             url: process.env.MONGODB_URI
