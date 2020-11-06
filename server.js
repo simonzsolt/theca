@@ -33,23 +33,14 @@ var port = (process.env.PORT || '3333');
 
 // -------------------DB CONNECTION-------------------
 
-//DEV MONGODB
-
-// mongoose.connect("mongodb://localhost/theca", function(err) {
-//     if (err) {
-//         console.log('DB connection error:' + err);
-//     }
-//     else {return;}
-// });
-
-
-// HEROKU MONGODB
-
-mongoose.connect(process.env.MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true}, function(err) {
+const db = mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
+}, function(err) {
     if (err) {
         console.log('DB connection error:' + err);
+        throw err
     }
-    else {return;}
 });
 
 // -------------------SERVER LISTENING-------------------
@@ -72,28 +63,18 @@ app.set('view engine', 'ejs');
 
 // ====================MIDDLEWARE====================
 
-// uncomment after placing your favicon in /public
-//app.use(favicon(__dirname + '/public/favicon.ico'));
-
 app.use(logger('dev')); // morgan logger
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use(session(
-    {
+app.use(session({
         secret: process.env.SECRET,
         resave: true,
         saveUninitialized: false,
         store: new MongoStore({
-            mongoOptions: {
-                useNewUrlParser: true, 
-                useUnifiedTopology: true
-            },
-            // for session
-            mongooseConnection: mongoose.connection,
+            mongooseConnection: db,
             url: process.env.MONGODB_URI
-            // url: "mongodb://localhost/theca"
     })
 }));
 

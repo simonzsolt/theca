@@ -2,15 +2,13 @@ var mongoose = require('mongoose'),
     Schema = mongoose.Schema;
 
 // session storage connection
-var connection = mongoose.
-    // createConnection("mongodb://localhost/theca", function(err) {
-    createConnection(process.env.MONGODB_URI, function(err) {
-        if (err) {
-            console.log('DB connection error:' + err);
-        }
-    else {return;}
-});
-
+// var connection = mongoose.
+//     createConnection(process.env.MONGODB_URI, function(err) {
+//         if (err) {
+//             console.log('DB connection error:' + err);
+//         }
+//     else {return;}
+// });
 
 var Theca = new mongoose.Schema({
 

@@ -1,0 +1,47 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/jota/.nvm/versions/node/v6.17.1/bin/node',
+1 verbose cli   '/home/jota/.nvm/versions/node/v6.17.1/bin/npm',
+1 verbose cli   'start' ]
+2 info using npm@3.10.10
+3 info using node@v6.17.1
+4 verbose run-script [ 'prestart', 'start', 'poststart' ]
+5 info lifecycle theca@0.0.0~prestart: theca@0.0.0
+6 silly lifecycle theca@0.0.0~prestart: no script for prestart, continuing
+7 info lifecycle theca@0.0.0~start: theca@0.0.0
+8 verbose lifecycle theca@0.0.0~start: unsafe-perm in lifecycle true
+9 verbose lifecycle theca@0.0.0~start: PATH: /home/jota/.nvm/versions/node/v6.17.1/lib/node_modules/npm/bin/node-gyp-bin:/home/jota/Projects/hece/theca/node_modules/.bin:/home/jota/.nvm/versions/node/v6.17.1/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/home/jota/.gem/ruby/2.6.0/bin:/home/jota/.gem/ruby/2.7.0/bin:/home/jota/.local/bin
+10 verbose lifecycle theca@0.0.0~start: CWD: /home/jota/Projects/hece/theca
+11 silly lifecycle theca@0.0.0~start: Args: [ '-c', 'node server.js' ]
+12 silly lifecycle theca@0.0.0~start: Returned: code: 1  signal: null
+13 info lifecycle theca@0.0.0~start: Failed to exec start script
+14 verbose stack Error: theca@0.0.0 start: `node server.js`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (/home/jota/.nvm/versions/node/v6.17.1/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (/home/jota/.nvm/versions/node/v6.17.1/lib/node_modules/npm/lib/utils/spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:920:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:230:5)
+15 verbose pkgid theca@0.0.0
+16 verbose cwd /home/jota/Projects/hece/theca
+17 error Linux 5.9.3-arch1-1
+18 error argv "/home/jota/.nvm/versions/node/v6.17.1/bin/node" "/home/jota/.nvm/versions/node/v6.17.1/bin/npm" "start"
+19 error node v6.17.1
+20 error npm  v3.10.10
+21 error code ELIFECYCLE
+22 error theca@0.0.0 start: `node server.js`
+22 error Exit status 1
+23 error Failed at the theca@0.0.0 start script 'node server.js'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the theca package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     node server.js
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs theca
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls theca
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]
